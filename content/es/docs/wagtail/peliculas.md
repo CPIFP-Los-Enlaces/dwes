@@ -13,3 +13,18 @@ Crear una aplicación de películas con la informaciń del siguiente archivo jso
 
 
 * [Películas](listapelis.json)
+
+## Ayudas
+
+### Ejecutar script de django
+```bash
+python manage.py shell < url_script.py
+```
+
+### slugify
+* https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.text.slugify
+* para rellenar campos **models.SlugField()**
+* Ejemplo: https://learndjango.com/tutorials/django-slug-tutorial
+
+
+

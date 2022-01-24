@@ -371,6 +371,15 @@ wagtail_bootstrap_blog
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;listapelis.json&#34;&gt;Películas&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;ayudas&#34;&gt;Ayudas&lt;/h2&gt;
+&lt;h3 id=&#34;ejecutar-script-de-django&#34;&gt;Ejecutar script de django&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python manage.py shell &amp;lt; url_script.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;slugify&#34;&gt;slugify&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.text.slugify&#34;&gt;https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.text.slugify&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;para rellenar campos &lt;strong&gt;models.SlugField()&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Ejemplo: &lt;a href=&#34;https://learndjango.com/tutorials/django-slug-tutorial&#34;&gt;https://learndjango.com/tutorials/django-slug-tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
