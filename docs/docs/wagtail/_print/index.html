@@ -205,7 +205,15 @@ Versión imprimible multipagina.
     
     
 	
-<li>10: <a href="#pg-0a2c67ac6c3739b1d9dea295dd408ec6">Testing</a></li>
+<li>10: <a href="#pg-da9f2d113a79f344cd9a0448c7ee8eae">Despliegue</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-0a2c67ac6c3739b1d9dea295dd408ec6">Testing</a></li>
 
 
     
@@ -627,6 +635,149 @@ wagtail_bootstrap_blog
 <li>para rellenar campos <strong>models.SlugField()</strong></li>
 <li>Ejemplo: <a href="https://learndjango.com/tutorials/django-slug-tutorial">https://learndjango.com/tutorials/django-slug-tutorial</a></li>
 </ul>
+<h3 id="paginación">Paginación</h3>
+<h4 id="modelo">Modelo</h4>
+<p><strong>Ejemplo breads:</strong> <a href="https://github.com/wagtail/bakerydemo/blob/9394d3a779d1cc5c95ca08281b722c6b2dc3f58d/bakerydemo/breads/models.py">https://github.com/wagtail/bakerydemo/blob/9394d3a779d1cc5c95ca08281b722c6b2dc3f58d/bakerydemo/breads/models.py</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">XXXX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Page</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#ce5c00;font-weight:bold">....</span>
+    <span style="color:#8f5902;font-style:italic"># Returns a queryset of BreadPage objects that are live, that are direct</span>
+    <span style="color:#8f5902;font-style:italic"># descendants of this index page with most recent first</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">get_breads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">BreadPage</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objects</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">live</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">descendant_of</span><span style="color:#000;font-weight:bold">(</span>
+            <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">order_by</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;-first_published_at&#39;</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#8f5902;font-style:italic"># Allows child objects (e.g. BreadPage objects) to be accessible via the</span>
+    <span style="color:#8f5902;font-style:italic"># template. We use this on the HomePage to display child items of featured</span>
+    <span style="color:#8f5902;font-style:italic"># content</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">children</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_children</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">specific</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">live</span><span style="color:#000;font-weight:bold">()</span>
+
+    <span style="color:#8f5902;font-style:italic"># Pagination for the index page. We use the `django.core.paginator` as any</span>
+    <span style="color:#8f5902;font-style:italic"># standard Django app would, but the difference here being we have it as a</span>
+    <span style="color:#8f5902;font-style:italic"># method on the model rather than within a view function</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">paginate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">args</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">page</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">request</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">GET</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;page&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">paginator</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Paginator</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_breads</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#0000cf;font-weight:bold">12</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">try</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">pages</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">paginator</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">page</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">page</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#000">PageNotAnInteger</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">pages</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">paginator</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">page</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#000">EmptyPage</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">pages</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">paginator</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">page</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">paginator</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">num_pages</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">pages</span>
+
+    <span style="color:#8f5902;font-style:italic"># Returns the above to the get_context method that is used to populate the</span>
+    <span style="color:#8f5902;font-style:italic"># template</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">get_context</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">context</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">BreadsIndexPage</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_context</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">)</span>
+
+        <span style="color:#8f5902;font-style:italic"># BreadPage objects (get_breads) are passed through pagination</span>
+        <span style="color:#000">breads</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">paginate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_breads</span><span style="color:#000;font-weight:bold">())</span>
+
+        <span style="color:#000">context</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;breads&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">breads</span>
+
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">context</span>
+</code></pre></div><h4 id="plantilla">Plantilla</h4>
+<ul>
+<li><a href="https://github.com/wagtail/bakerydemo/blob/63c4add18afe07949efb3a7166a423cdef1e8a47/bakerydemo/templates/breads/breads_index_page.html">https://github.com/wagtail/bakerydemo/blob/63c4add18afe07949efb3a7166a423cdef1e8a47/bakerydemo/templates/breads/breads_index_page.html</a></li>
+<li><a href="https://github.com/wagtail/bakerydemo/blob/63c4add18afe07949efb3a7166a423cdef1e8a47/bakerydemo/templates/includes/pagination.html">https://github.com/wagtail/bakerydemo/blob/63c4add18afe07949efb3a7166a423cdef1e8a47/bakerydemo/templates/includes/pagination.html</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> {% if breads.paginator.count &gt; 1 %}
+        <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;container&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;row&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+                <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;col-md-12&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+                {% include &#34;includes/pagination.html&#34; with subpages=breads %}
+                <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
+            <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
+        <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
+ {% endif %}
+
+  
+<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">nav</span> <span style="color:#c4a000">role</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;pagination&#34;</span> <span style="color:#c4a000">aria-label</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Pagination&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">ul</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;pagination&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+        {% if subpages.has_previous %}
+            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-item&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+                <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;?page={{ subpages.previous_page_number }}&#34;</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-link previous arrows&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>previous<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+            <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+            {% else %}
+            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-item disabled&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+                <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-link&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>previous<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+            <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+        {% endif %}
+
+        {% for i in subpages.paginator.page_range %}
+            {% if subpages.number == i %}
+              <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;active&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;</span><span style="color:#204a87;font-weight:bold">span</span><span style="color:#000;font-weight:bold">&gt;</span>{{ i }} <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">span</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;sr-only&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>(current)<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">span</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">span</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+            {% else %}
+              <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-item&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;?page={{ query_string|urlencode }}&amp;amp;page={{ i }}&#34;</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-link&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>{{ i }}<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+            {% endif %}
+          {% endfor %}
+
+        {% if subpages.has_next %}
+            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-item&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+                <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;?page={{ subpages.next_page_number }}&#34;</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-link next arrows&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>next<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+            <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+            {% else %}
+            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-item disabled&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+                <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page-link&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>next<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+            <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+        {% endif %}
+    <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
+<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">nav</span><span style="color:#000;font-weight:bold">&gt;</span>
+
+
+</code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-da9f2d113a79f344cd9a0448c7ee8eae">10 - Despliegue</h1>
+    <div class="lead">Servidor en producción</div>
+	
+
+<div class="pageinfo pageinfo-primary">
+<ul>
+<li><a href="https://docs.wagtail.org/en/stable/advanced_topics/deploying.html">https://docs.wagtail.org/en/stable/advanced_topics/deploying.html</a></li>
+<li><a href="https://docs.djangoproject.com/en/stable/howto/deployment/">https://docs.djangoproject.com/en/stable/howto/deployment/</a></li>
+<li><a href="https://docs.wagtail.org/en/stable/advanced_topics/performance.html">https://docs.wagtail.org/en/stable/advanced_topics/performance.html</a></li>
+</ul>
+
+</div>
+
+<h2 id="requisitos">Requisitos</h2>
+<ul>
+<li>Postgresql</li>
+<li>Elasticsearch</li>
+<li>Redis</li>
+<li>Varnish ?</li>
+<li>Gunicorn</li>
+</ul>
+<h3 id="gunicorn">Gunicorn</h3>
+<ul>
+<li><a href="https://docs.gunicorn.org/en/latest/deploy.html">https://docs.gunicorn.org/en/latest/deploy.html</a></li>
+</ul>
+<h3 id="tutoriales">Tutoriales</h3>
+<ul>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04-es">https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04-es</a></p>
+</li>
+<li>
+<p><a href="https://esdjango.com/configuracion-de-gunicorn-y-nginx-para-django.html">https://esdjango.com/configuracion-de-gunicorn-y-nginx-para-django.html</a></p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-20-04-es">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-20-04-es</a></p>
+</li>
+</ul>
 
 </div>
 
@@ -642,7 +793,7 @@ wagtail_bootstrap_blog
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0a2c67ac6c3739b1d9dea295dd408ec6">10 - Testing</h1>
+	<h1 id="pg-0a2c67ac6c3739b1d9dea295dd408ec6">11 - Testing</h1>
     <div class="lead">Configuraciones varias</div>
 	
 
