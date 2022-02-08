@@ -19,6 +19,7 @@ El proyecto consistirá en una web a partir de la web hecha en clase (fork del t
     *  gestión de páginas: padres/hijas
     *  plantilla (navbar, sidebar, footer, etc)
     *  El footer se podrá editar desde el CMS (snippet)
+    *  Añadir página de contacto.
 
 * Añadir noticias breves del sitio.
   * Tendrán un texto y una o más imágenes. 

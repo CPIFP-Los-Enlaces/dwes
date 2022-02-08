@@ -806,6 +806,7 @@ wagtail_bootstrap_blog
 &lt;li&gt;gestión de páginas: padres/hijas&lt;/li&gt;
 &lt;li&gt;plantilla (navbar, sidebar, footer, etc)&lt;/li&gt;
 &lt;li&gt;El footer se podrá editar desde el CMS (snippet)&lt;/li&gt;
+&lt;li&gt;Añadir página de contacto.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
