@@ -14,6 +14,12 @@ tags: []
 
 {{% /pageinfo %}}
 
+![Despliegue](https://files.realpython.com/media/nginx-gunicorn-final-config.f31311dc4fed.png)
+
+## CHECKLIST
+
+https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+
 
 ## Requisitos
 * Postgresql
@@ -21,6 +27,8 @@ tags: []
 * Redis
 * Varnish ? 
 * Gunicorn
+
+
 
 ### BASE
 ```bash
@@ -36,6 +44,7 @@ sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
 ```bash
 gunicorn <miproyecto>.wsgi:application --bind 0.0.0.0:8000 --chdir=/<ruta_base>
 ```
+
 
 #### Gunicorn 
 * https://docs.gunicorn.org/en/latest/deploy.html

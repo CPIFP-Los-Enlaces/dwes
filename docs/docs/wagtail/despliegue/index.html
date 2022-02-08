@@ -28,13 +28,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lmorillas.github.io/dwes/docs/wagtail/despliegue/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-10-21T10:36:54+02:00" />
-<meta property="article:modified_time" content="2022-01-31T22:21:55+01:00" /><meta property="og:site_name" content="Desarrollo Web Entorno Servidor" />
+<meta property="article:modified_time" content="2022-02-06T21:18:12+01:00" /><meta property="og:site_name" content="Desarrollo Web Entorno Servidor" />
 
 <meta itemprop="name" content="Despliegue">
 <meta itemprop="description" content="Servidor en producción
 "><meta itemprop="datePublished" content="2021-10-21T10:36:54+02:00" />
-<meta itemprop="dateModified" content="2022-01-31T22:21:55+01:00" />
-<meta itemprop="wordCount" content="184">
+<meta itemprop="dateModified" content="2022-02-06T21:18:12+01:00" />
+<meta itemprop="wordCount" content="186">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Despliegue"/>
 <meta name="twitter:description" content="Servidor en producción
@@ -324,6 +324,10 @@
   <input type="checkbox" id="m-dwesdocswagtailtesting-check"/>
   <label for="m-dwesdocswagtailtesting-check"><a href="/dwes/docs/wagtail/testing/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocswagtailtesting"><span class="">Testing</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocswagtailextensiones-li">
+  <input type="checkbox" id="m-dwesdocswagtailextensiones-check"/>
+  <label for="m-dwesdocswagtailextensiones-check"><a href="/dwes/docs/wagtail/extensiones/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocswagtailextensiones"><span class="">Extensiones</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-dwesdocsproyectos-li">
@@ -334,6 +338,10 @@
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsproyectosdjango_1-li">
   <input type="checkbox" id="m-dwesdocsproyectosdjango_1-check"/>
   <label for="m-dwesdocsproyectosdjango_1-check"><a href="/dwes/docs/proyectos/django_1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsproyectosdjango_1"><span class="">Proyecto Django - Primer trimestre</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsproyectoswagtail_2-li">
+  <input type="checkbox" id="m-dwesdocsproyectoswagtail_2-check"/>
+  <label for="m-dwesdocsproyectoswagtail_2-check"><a href="/dwes/docs/proyectos/wagtail_2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsproyectoswagtail_2"><span class="">Proyecto Django/Wagtail - Segundo trimestre</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsproyectoscentros_educativos-li">
   <input type="checkbox" id="m-dwesdocsproyectoscentros_educativos-check"/>
@@ -367,6 +375,7 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
+    <li><a href="#checklist">CHECKLIST</a></li>
     <li><a href="#requisitos">Requisitos</a>
       <ul>
         <li><a href="#base">BASE</a></li>
@@ -433,7 +442,7 @@
         
           <li><a class="taxonomy-term" href="https://lmorillas.github.io/dwes/tags/postgresql/" data-taxonomy-term="postgresql"><span class="taxonomy-label">postgresql</span><span class="taxonomy-count">1</span></a></li>
         
-          <li><a class="taxonomy-term" href="https://lmorillas.github.io/dwes/tags/proyectos/" data-taxonomy-term="proyectos"><span class="taxonomy-label">proyectos</span><span class="taxonomy-count">2</span></a></li>
+          <li><a class="taxonomy-term" href="https://lmorillas.github.io/dwes/tags/proyectos/" data-taxonomy-term="proyectos"><span class="taxonomy-label">proyectos</span><span class="taxonomy-count">3</span></a></li>
         
           <li><a class="taxonomy-term" href="https://lmorillas.github.io/dwes/tags/sesiones/" data-taxonomy-term="sesiones"><span class="taxonomy-label">Sesiones</span><span class="taxonomy-count">1</span></a></li>
         
@@ -522,6 +531,9 @@
 
 </div>
 
+<p><img src="https://files.realpython.com/media/nginx-gunicorn-final-config.f31311dc4fed.png" alt="Despliegue"></p>
+<h2 id="checklist">CHECKLIST</h2>
+<p><a href="https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/">https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/</a></p>
 <h2 id="requisitos">Requisitos</h2>
 <ul>
 <li>Postgresql</li>
@@ -610,8 +622,8 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser<span style="color:#0
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Última modificación
-    January 31, 2022
-    : <a  href="https://github.com/lmorillas/dwes/commit/4edf5eec9b69b1eacd4b4316ee300e48efddc559">despliegue (4edf5ee)</a>
+    February 6, 2022
+    : <a  href="https://github.com/lmorillas/dwes/commit/8e8275ee899d216ae1354209bde23f3824809c8c">despliegue (8e8275e)</a>
 
 </div>
 

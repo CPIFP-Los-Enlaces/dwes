@@ -782,6 +782,75 @@ wagtail_bootstrap_blog
     </item>
     
     <item>
+      <title>Docs: Proyecto Django/Wagtail - Segundo trimestre</title>
+      <link>https://lmorillas.github.io/dwes/docs/proyectos/wagtail_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lmorillas.github.io/dwes/docs/proyectos/wagtail_2/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Descripción&lt;/strong&gt;: proyecto de una web usando el CMS Wagtail&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;borrador&#34;&gt;BORRADOR&lt;/h2&gt;
+&lt;p&gt;El proyecto consistirá en una web a partir de la web hecha en clase (fork del tutorial de wagtail)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Se finalizará la estructura iniciada:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gestión de páginas: padres/hijas&lt;/li&gt;
+&lt;li&gt;plantilla (navbar, sidebar, footer, etc)&lt;/li&gt;
+&lt;li&gt;El footer se podrá editar desde el CMS (snippet)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Añadir noticias breves del sitio.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tendrán un texto y una o más imágenes.&lt;/li&gt;
+&lt;li&gt;Se mostrarán las 5 últimas en la primera página de forma resumida y haciendo click la noticia completa.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Posibilidad de poner un aviso en la primera página.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se mostrará debajo del menú principal si está activado&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Completar blog de clase:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Habrá tres tipos de entradas de blog:
+&lt;ul&gt;
+&lt;li&gt;Genéricas&lt;/li&gt;
+&lt;li&gt;De películas. Se enlazará con una de las películas de nuestra sección de películas.&lt;/li&gt;
+&lt;li&gt;De viajes. Tendrá texto fotos y coordenadas. Se mostrará además del texto y las fotos un mapa con las coordenadas.&lt;/li&gt;
+&lt;li&gt;Otra a proponer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Proponer organización y visualización.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creación de una una nueva sección similar a la de las películas con en la que se instroducen datos en nuestro CMS a partir de una archivo json o csv.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Documentación de la sección.&lt;/li&gt;
+&lt;li&gt;Script para generar la sección.&lt;/li&gt;
+&lt;li&gt;Posibilidad de edición en un grupo del Admin justo debajo de las películas.&lt;/li&gt;
+&lt;li&gt;Creación de un tipo de páginas para la sección (index y de detalle)&lt;/li&gt;
+&lt;li&gt;Estas páginas podrán colgar de la principal (sólo el index)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Creación de un proyecto y una app</title>
       <link>https://lmorillas.github.io/dwes/docs/django/creacion-proyecto-app/</link>
       <pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate>
@@ -3319,6 +3388,9 @@ Ejemplo en plantilla de django con coordenadas en variable &lt;strong&gt;coords&
 
 &lt;/div&gt;
 
+&lt;p&gt;&lt;img src=&#34;https://files.realpython.com/media/nginx-gunicorn-final-config.f31311dc4fed.png&#34; alt=&#34;Despliegue&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;checklist&#34;&gt;CHECKLIST&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/&#34;&gt;https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Postgresql&lt;/li&gt;
@@ -3516,6 +3588,28 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser&lt;span style=&#34;c
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tbody&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;table&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Extensiones</title>
+      <link>https://lmorillas.github.io/dwes/docs/wagtail/extensiones/</link>
+      <pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate>
+      
+      <guid>https://lmorillas.github.io/dwes/docs/wagtail/extensiones/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://datatables.net/&#34;&gt;https://datatables.net/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+
       </description>
     </item>
     

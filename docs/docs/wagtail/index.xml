@@ -495,6 +495,9 @@ wagtail_bootstrap_blog
 
 &lt;/div&gt;
 
+&lt;p&gt;&lt;img src=&#34;https://files.realpython.com/media/nginx-gunicorn-final-config.f31311dc4fed.png&#34; alt=&#34;Despliegue&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;checklist&#34;&gt;CHECKLIST&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/&#34;&gt;https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Postgresql&lt;/li&gt;
@@ -595,6 +598,28 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser&lt;span style=&#34;c
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.wagtail.io/en/stable/advanced_topics/testing.html&#34;&gt;https://docs.wagtail.io/en/stable/advanced_topics/testing.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Extensiones</title>
+      <link>https://lmorillas.github.io/dwes/docs/wagtail/extensiones/</link>
+      <pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate>
+      
+      <guid>https://lmorillas.github.io/dwes/docs/wagtail/extensiones/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://datatables.net/&#34;&gt;https://datatables.net/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;/div&gt;
