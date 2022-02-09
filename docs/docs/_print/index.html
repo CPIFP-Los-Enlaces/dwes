@@ -615,6 +615,14 @@ Versión imprimible multipagina.
 
     
   
+    
+    
+	
+<li>7.13: <a href="#pg-59bdb5c14fed770b962bb8455962f91e">REST API</a></li>
+
+
+    
+  
 
     </ul>
     
@@ -4592,12 +4600,97 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser<span style="color:#0
 
 <div class="pageinfo pageinfo-primary">
 <ul>
-<li><a href="https://datatables.net/">https://datatables.net/</a></li>
+<li><a href="https://datatables.net/">https://datatables.net/</a>
+<ul>
+<li>Necesita jQuery</li>
+</ul>
+</li>
 </ul>
 
 </div>
 
 
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-59bdb5c14fed770b962bb8455962f91e">7.13 - REST API</h1>
+    <div class="lead">REST API</div>
+	
+
+<div class="pageinfo pageinfo-primary">
+<ul>
+<li><a href="https://docs.wagtail.org/en/stable/advanced_topics/api/index.html">https://docs.wagtail.org/en/stable/advanced_topics/api/index.html</a></li>
+<li><a href="https://www.django-rest-framework.org/">https://www.django-rest-framework.org/</a></li>
+</ul>
+
+</div>
+
+<h2 id="serializers">serializers</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.serializers</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">ModelSerializer</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.models</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Pelicula</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">PeliculaSerializer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ModelSerializer</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Meta</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Pelicula</span>
+        <span style="color:#000">fields</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>
+            <span style="color:#4e9a06">&#39;url&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;title&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;slug&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;rating&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;link&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;year&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;imagen&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;cast&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;generos&#39;</span>
+        <span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><h2 id="views">views</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.mixins</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+    <span style="color:#000">CreateModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ListModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">RetrieveModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">UpdateModelMixin</span>
+<span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.viewsets</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">GenericViewSet</span>
+
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">permissions</span>
+
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.models</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Pelicula</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.serializers</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">PeliculaSerializer</span>
+
+<span style="color:#4e9a06">&#39;&#39;&#39;
+</span><span style="color:#4e9a06">GenericViewSet  # generic view functionality
+</span><span style="color:#4e9a06">CreateModelMixin  # handles POSTs
+</span><span style="color:#4e9a06">RetrieveModelMixin  # handles GETs for 1 object
+</span><span style="color:#4e9a06">UpdateModelMixin,  # handles PUTs and PATCHes
+</span><span style="color:#4e9a06">ListModelMixin):  # handles GETs for many objects
+</span><span style="color:#4e9a06">&#39;&#39;&#39;</span>
+
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">PeliculaViewSet</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ListModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">GenericViewSet</span><span style="color:#000;font-weight:bold">):</span>  <span style="color:#8f5902;font-style:italic"># handles GETs for many Companies</span>
+    <span style="color:#4e9a06">&#39;&#39;&#39; 
+</span><span style="color:#4e9a06">    API Endpoint para mostrar películas
+</span><span style="color:#4e9a06">    &#39;&#39;&#39;</span>
+
+    <span style="color:#000">serializer_class</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PeliculaSerializer</span>
+    <span style="color:#000">queryset</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Pelicula</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objects</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">all</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">order_by</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;-rating&#39;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#8f5902;font-style:italic"># permission_classes = [permissions.IsAuthenticated]</span>
+</code></pre></div><h2 id="urls">urls</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># urls.py</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">django.urls</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">include</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">path</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.routers</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">DefaultRouter</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.views</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">PeliculaViewSet</span>
+
+
+<span style="color:#000">router</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DefaultRouter</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">router</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">register</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">r</span><span style="color:#4e9a06">&#39;pelicula&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">PeliculaViewSet</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">urlpatterns</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span>
+    <span style="color:#000">path</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">include</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">router</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">urls</span><span style="color:#000;font-weight:bold">)),</span>
+    <span style="color:#000">path</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;api-auth/&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">include</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;rest_framework.urls&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">namespace</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;rest_framework&#39;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000;font-weight:bold">]</span>
+</code></pre></div><h2 id="installed-apps">installed apps</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#4e9a06">&#39;rest_framework&#39;</span><span style="color:#000;font-weight:bold">,</span>
+</code></pre></div>
 </div>
 
 

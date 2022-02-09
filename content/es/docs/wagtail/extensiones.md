@@ -9,5 +9,6 @@ tags: []
 
 {{% pageinfo %}}
  * https://datatables.net/
-  
+    * Necesita jQuery
 {{% /pageinfo %}}
+

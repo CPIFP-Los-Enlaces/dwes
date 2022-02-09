@@ -17,43 +17,28 @@
 <link rel="icon" type="image/png" href="/dwes/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/dwes/favicons/android-192x192.png" sizes="192x192">
 
-<title>Plantillas | Desarrollo Web Entorno Servidor</title>
+<title>REST API | Desarrollo Web Entorno Servidor</title>
 
 
-  
-  <meta name="description" content="
-
-
-Algunas notas sobre el trabajo con las plantillas:
-
-Sintaxis básica de las plantillas en Hugo
-Organización de las plantillas. Directorio layout …">
-<meta property="og:title" content="Plantillas" />
-<meta property="og:description" content="Algunas notas sobre el trabajo con las plantillas:
- Sintaxis básica de las plantillas en Hugo Organización de las plantillas. Directorio layout Modificación de una plantilla Creación de plantillas  Documentación: https://gohugo.io/templates/
- Sintaxis básica Acceso a variables predefinidas:
-{{.Title}} {{.Params.bar}} {{ifor(isset.Params&#34;alt&#34;)(isset.Params&#34;caption&#34;)}} Caption {{end}} &lt;title&gt;{{.Title}}&lt;/title&gt; Partial Incluye un fragmento en una plantilla para no tener que repetirlo:
-{{partial&#34;&lt;PATH&gt;/&lt;PARTIAL&gt;.&lt;EXTENSION&gt;&#34;.}}. # Por ejemplo: layouts/partials/header.html partial {{partial&#34;header.html&#34;.}}  Importante Los partials nos ayudan a reutilizar el código y a no repetir fragmentos." />
+  <meta name="description" content="REST API
+">
+<meta property="og:title" content="REST API" />
+<meta property="og:description" content="REST API
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lmorillas.github.io/dwes/docs/staticsitegen/templates/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-26T22:52:09+02:00" /><meta property="og:site_name" content="Desarrollo Web Entorno Servidor" />
+<meta property="og:url" content="https://lmorillas.github.io/dwes/docs/wagtail/restapi/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-10-21T10:36:54+02:00" />
+<meta property="article:modified_time" content="2021-10-21T10:36:54+02:00" /><meta property="og:site_name" content="Desarrollo Web Entorno Servidor" />
 
-<meta itemprop="name" content="Plantillas">
-<meta itemprop="description" content="Algunas notas sobre el trabajo con las plantillas:
- Sintaxis básica de las plantillas en Hugo Organización de las plantillas. Directorio layout Modificación de una plantilla Creación de plantillas  Documentación: https://gohugo.io/templates/
- Sintaxis básica Acceso a variables predefinidas:
-{{.Title}} {{.Params.bar}} {{ifor(isset.Params&#34;alt&#34;)(isset.Params&#34;caption&#34;)}} Caption {{end}} &lt;title&gt;{{.Title}}&lt;/title&gt; Partial Incluye un fragmento en una plantilla para no tener que repetirlo:
-{{partial&#34;&lt;PATH&gt;/&lt;PARTIAL&gt;.&lt;EXTENSION&gt;&#34;.}}. # Por ejemplo: layouts/partials/header.html partial {{partial&#34;header.html&#34;.}}  Importante Los partials nos ayudan a reutilizar el código y a no repetir fragmentos."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-09-26T22:52:09+02:00" />
-<meta itemprop="wordCount" content="350">
+<meta itemprop="name" content="REST API">
+<meta itemprop="description" content="REST API
+"><meta itemprop="datePublished" content="2021-10-21T10:36:54+02:00" />
+<meta itemprop="dateModified" content="2021-10-21T10:36:54+02:00" />
+<meta itemprop="wordCount" content="147">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Plantillas"/>
-<meta name="twitter:description" content="Algunas notas sobre el trabajo con las plantillas:
- Sintaxis básica de las plantillas en Hugo Organización de las plantillas. Directorio layout Modificación de una plantilla Creación de plantillas  Documentación: https://gohugo.io/templates/
- Sintaxis básica Acceso a variables predefinidas:
-{{.Title}} {{.Params.bar}} {{ifor(isset.Params&#34;alt&#34;)(isset.Params&#34;caption&#34;)}} Caption {{end}} &lt;title&gt;{{.Title}}&lt;/title&gt; Partial Incluye un fragmento en una plantilla para no tener que repetirlo:
-{{partial&#34;&lt;PATH&gt;/&lt;PARTIAL&gt;.&lt;EXTENSION&gt;&#34;.}}. # Por ejemplo: layouts/partials/header.html partial {{partial&#34;header.html&#34;.}}  Importante Los partials nos ayudan a reutilizar el código y a no repetir fragmentos."/>
+<meta name="twitter:title" content="REST API"/>
+<meta name="twitter:description" content="REST API
+"/>
 
 
 
@@ -130,8 +115,8 @@ Organización de las plantillas. Directorio layout …">
   <input type="checkbox" id="m-dwesdocspresentacic3b3n-check"/>
   <label for="m-dwesdocspresentacic3b3n-check"><a href="/dwes/docs/presentaci%C3%B3n/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocspresentacic3b3n"><span class="">Presentación</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-dwesdocsstaticsitegen-li">
-  <input type="checkbox" id="m-dwesdocsstaticsitegen-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-dwesdocsstaticsitegen-li">
+  <input type="checkbox" id="m-dwesdocsstaticsitegen-check"/>
   <label for="m-dwesdocsstaticsitegen-check"><a href="/dwes/docs/staticsitegen/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocsstaticsitegen"><span class="">Generadores de Sitios Estáticos</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -147,9 +132,9 @@ Organización de las plantillas. Directorio layout …">
   <input type="checkbox" id="m-dwesdocsstaticsitegencontenido-check"/>
   <label for="m-dwesdocsstaticsitegencontenido-check"><a href="/dwes/docs/staticsitegen/contenido/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsstaticsitegencontenido"><span class="">Cómo añadir contenido</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-dwesdocsstaticsitegentemplates-li">
-  <input type="checkbox" id="m-dwesdocsstaticsitegentemplates-check" checked/>
-  <label for="m-dwesdocsstaticsitegentemplates-check"><a href="/dwes/docs/staticsitegen/templates/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-dwesdocsstaticsitegentemplates"><span class="td-sidebar-nav-active-item">Plantillas</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsstaticsitegentemplates-li">
+  <input type="checkbox" id="m-dwesdocsstaticsitegentemplates-check"/>
+  <label for="m-dwesdocsstaticsitegentemplates-check"><a href="/dwes/docs/staticsitegen/templates/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsstaticsitegentemplates"><span class="">Plantillas</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsstaticsitegenshortcodes-li">
   <input type="checkbox" id="m-dwesdocsstaticsitegenshortcodes-check"/>
@@ -290,8 +275,8 @@ Organización de las plantillas. Directorio layout …">
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-dwesdocswagtail-li">
-  <input type="checkbox" id="m-dwesdocswagtail-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-dwesdocswagtail-li">
+  <input type="checkbox" id="m-dwesdocswagtail-check" checked/>
   <label for="m-dwesdocswagtail-check"><a href="/dwes/docs/wagtail/" title="Wagtail CMS" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocswagtail"><span class="">Wagtail</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -343,9 +328,9 @@ Organización de las plantillas. Directorio layout …">
   <input type="checkbox" id="m-dwesdocswagtailextensiones-check"/>
   <label for="m-dwesdocswagtailextensiones-check"><a href="/dwes/docs/wagtail/extensiones/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocswagtailextensiones"><span class="">Extensiones</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocswagtailrestapi-li">
-  <input type="checkbox" id="m-dwesdocswagtailrestapi-check"/>
-  <label for="m-dwesdocswagtailrestapi-check"><a href="/dwes/docs/wagtail/restapi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocswagtailrestapi"><span class="">REST API</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-dwesdocswagtailrestapi-li">
+  <input type="checkbox" id="m-dwesdocswagtailrestapi-check" checked/>
+  <label for="m-dwesdocswagtailrestapi-check"><a href="/dwes/docs/wagtail/restapi/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-dwesdocswagtailrestapi"><span class="td-sidebar-nav-active-item">REST API</span></a></label>
   
 </li>
   </ul>
@@ -394,13 +379,10 @@ Organización de las plantillas. Directorio layout …">
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#sintaxis-básica">Sintaxis básica</a></li>
-    <li><a href="#partial">Partial</a></li>
-    <li><a href="#plantillas-base-y-bloques">Plantillas base y bloques</a></li>
-    <li><a href="#funciones">Funciones</a></li>
-    <li><a href="#parámetros-de-las-páginas">Parámetros de las páginas</a></li>
-    <li><a href="#uso-de-la-configuración-del-sitio">Uso de la configuración del sitio</a></li>
-    <li><a href="#uso-de-datos-de-la-página">Uso de datos de la página</a></li>
+    <li><a href="#serializers">serializers</a></li>
+    <li><a href="#views">views</a></li>
+    <li><a href="#urls">urls</a></li>
+    <li><a href="#installed-apps">installed apps</a></li>
   </ul>
 </nav></div>
 
@@ -505,14 +487,14 @@ Organización de las plantillas. Directorio layout …">
 
 
 <li class="breadcrumb-item" >
-	<a href="https://lmorillas.github.io/dwes/docs/staticsitegen/">Generadores de Sitios Estáticos</a>
+	<a href="https://lmorillas.github.io/dwes/docs/wagtail/">Wagtail</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://lmorillas.github.io/dwes/docs/staticsitegen/templates/">Plantillas</a>
+	<a href="https://lmorillas.github.io/dwes/docs/wagtail/restapi/">REST API</a>
 </li>
 
 	</ol>
@@ -520,8 +502,8 @@ Organización de las plantillas. Directorio layout …">
 
             
 <div class="td-content">
-	<h1>Plantillas</h1>
-	
+	<h1>REST API</h1>
+	<div class="lead">REST API</div>
 	<header class="article-meta">
 		
 		
@@ -540,149 +522,71 @@ Organización de las plantillas. Directorio layout …">
 	
 
 <div class="pageinfo pageinfo-primary">
-<p>Algunas notas sobre el trabajo con las plantillas:</p>
 <ul>
-<li>Sintaxis básica de las plantillas en Hugo</li>
-<li>Organización de las plantillas. Directorio <code>layout</code></li>
-<li>Modificación de una plantilla</li>
-<li>Creación de plantillas</li>
+<li><a href="https://docs.wagtail.org/en/stable/advanced_topics/api/index.html">https://docs.wagtail.org/en/stable/advanced_topics/api/index.html</a></li>
+<li><a href="https://www.django-rest-framework.org/">https://www.django-rest-framework.org/</a></li>
 </ul>
-<p><strong>Documentación:</strong>  <a href="https://gohugo.io/templates/">https://gohugo.io/templates/</a></p>
 
 </div>
 
-<h2 id="sintaxis-básica">Sintaxis básica</h2>
-<p>Acceso a variables predefinidas:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
+<h2 id="serializers">serializers</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.serializers</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">ModelSerializer</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.models</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Pelicula</span>
 
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params.bar</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">PeliculaSerializer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ModelSerializer</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Meta</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Pelicula</span>
+        <span style="color:#000">fields</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>
+            <span style="color:#4e9a06">&#39;url&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;title&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;slug&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;rating&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;link&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;year&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;imagen&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;cast&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;generos&#39;</span>
+        <span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><h2 id="views">views</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.mixins</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+    <span style="color:#000">CreateModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ListModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">RetrieveModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">UpdateModelMixin</span>
+<span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.viewsets</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">GenericViewSet</span>
 
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">if</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">or</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">isset</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;alt&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">isset</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;caption&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span> Caption <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">permissions</span>
 
-<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">&gt;</span>
-</code></pre></div><h2 id="partial">Partial</h2>
-<p>Incluye un fragmento en una plantilla para no tener que repetirlo:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">partial</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;&lt;PATH&gt;/&lt;PARTIAL&gt;.&lt;EXTENSION&gt;&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>.
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.models</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Pelicula</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.serializers</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">PeliculaSerializer</span>
 
-# Por ejemplo: layouts/partials/header.html partial
+<span style="color:#4e9a06">&#39;&#39;&#39;
+</span><span style="color:#4e9a06">GenericViewSet  # generic view functionality
+</span><span style="color:#4e9a06">CreateModelMixin  # handles POSTs
+</span><span style="color:#4e9a06">RetrieveModelMixin  # handles GETs for 1 object
+</span><span style="color:#4e9a06">UpdateModelMixin,  # handles PUTs and PATCHes
+</span><span style="color:#4e9a06">ListModelMixin):  # handles GETs for many objects
+</span><span style="color:#4e9a06">&#39;&#39;&#39;</span>
 
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">partial</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;header.html&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
 
-</code></pre></div>
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">PeliculaViewSet</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ListModelMixin</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">GenericViewSet</span><span style="color:#000;font-weight:bold">):</span>  <span style="color:#8f5902;font-style:italic"># handles GETs for many Companies</span>
+    <span style="color:#4e9a06">&#39;&#39;&#39; 
+</span><span style="color:#4e9a06">    API Endpoint para mostrar películas
+</span><span style="color:#4e9a06">    &#39;&#39;&#39;</span>
 
-<div class="alert alert-danger" role="alert">
-<h4 class="alert-heading">Importante</h4>
+    <span style="color:#000">serializer_class</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PeliculaSerializer</span>
+    <span style="color:#000">queryset</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Pelicula</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objects</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">all</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">order_by</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;-rating&#39;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#8f5902;font-style:italic"># permission_classes = [permissions.IsAuthenticated]</span>
+</code></pre></div><h2 id="urls">urls</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># urls.py</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">django.urls</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">include</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">path</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">rest_framework.routers</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">DefaultRouter</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">.views</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">PeliculaViewSet</span>
 
-    Los partials nos ayudan a reutilizar el código y a no repetir fragmentos.
 
-</div>
+<span style="color:#000">router</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DefaultRouter</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">router</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">register</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">r</span><span style="color:#4e9a06">&#39;pelicula&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">PeliculaViewSet</span><span style="color:#000;font-weight:bold">)</span>
 
-<h2 id="plantillas-base-y-bloques">Plantillas base y bloques</h2>
-<p><a href="https://gohugo.io/templates/base/">https://gohugo.io/templates/base/</a></p>
-<p><code>layouts/_default/baseof.html</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#8f5902;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">html</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">head</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">meta</span> <span style="color:#c4a000">charset</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">&gt;</span>{{ block &#34;title&#34; . }}
-      <span style="color:#8f5902;font-style:italic">&lt;!-- Blocks may include default content. --&gt;</span>
-      {{ .Site.Title }}
-    {{ end }}<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">head</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">body</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#8f5902;font-style:italic">&lt;!-- Code that all your templates share, like a header --&gt;</span>
-    {{ block &#34;main&#34; . }}
-      <span style="color:#8f5902;font-style:italic">&lt;!-- The part of the page that begins to differ between templates --&gt;</span>
-    {{ end }}
-    {{ block &#34;footer&#34; . }}
-    <span style="color:#8f5902;font-style:italic">&lt;!-- More shared code, perhaps a footer but that can be overridden if need be in  --&gt;</span>
-    {{ end }}
-  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">body</span><span style="color:#000;font-weight:bold">&gt;</span>
-<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">html</span><span style="color:#000;font-weight:bold">&gt;</span>
-</code></pre></div><p><code>layouts/_default/single.html</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">define</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;title&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-  <span style="color:#8f5902;font-style:italic">&lt;!-- Sobreescribe el valor de  baseof.html --&gt;</span>
-  <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span> <span style="color:#ce5c00">&amp;ndash;</span> <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Site.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">define</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;main&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-  <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">h1</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">h1</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Content</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-</code></pre></div><h2 id="funciones">Funciones</h2>
-<p><a href="https://gohugo.io/templates/introduction/">https://gohugo.io/templates/introduction/</a></p>
-<h2 id="parámetros-de-las-páginas">Parámetros de las páginas</h2>
-<p><a href="https://gohugo.io/templates/introduction/#use-content-page-parameters">https://gohugo.io/templates/introduction/#use-content-page-parameters</a></p>
-<p>Podemos usar datos escritos en el <strong>front-matter</strong> de la página desde la plantilla:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">if</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">not</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params.notoc</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">aside</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">header</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;#</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">|</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">urlize</span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">h3</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#c4a000">.Title</span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">h3</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">header</span><span style="color:#000;font-weight:bold">&gt;</span>
-  <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#c4a000">.TableOfContents</span><span style="color:#8f5902;font-style:italic">}}</span>
-<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">aside</span><span style="color:#000;font-weight:bold">&gt;</span>
-<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;#&#34;</span> <span style="color:#c4a000">id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;toc-toggle&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-</code></pre></div><h2 id="uso-de-la-configuración-del-sitio">Uso de la configuración del sitio</h2>
-<p><a href="https://gohugo.io/templates/introduction/#use-site-configuration-parameters">https://gohugo.io/templates/introduction/#use-site-configuration-parameters</a></p>
-<p>Y también datos del archivo de configuración general:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">if</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Site.Params.copyrighthtml</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">footer</span><span style="color:#000;font-weight:bold">&gt;</span>
-        <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;text-center&#34;</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#c4a000">.Site.Params.CopyrightHTML</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">|</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">safeHTML</span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">footer</span><span style="color:#000;font-weight:bold">&gt;</span>
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-</code></pre></div><h2 id="uso-de-datos-de-la-página">Uso de datos de la página</h2>
-<p><strong>Archetype</strong> ejemplo</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#000">---</span>
-<span style="color:#000">title</span><span style="color:#a40000">:</span> <span style="color:#a40000">​</span> <span style="color:#4e9a06">&#34; ​ {{​ ​ replace​ ​ .Name​ ​ &#34;</span><span style="color:#000">-</span><span style="color:#4e9a06">&#34; &#34;</span> <span style="color:#4e9a06">&#34; | title }}&#34;</span>
-<span style="color:#000">draft</span><span style="color:#a40000">:</span> <span style="color:#204a87;font-weight:bold">false</span>
-<span style="color:#000">image</span><span style="color:#a40000">:</span> <span style="color:#a40000">​</span> <span style="color:#a40000">//</span><span style="color:#000">via</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">placeholder</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#a40000">/</span><span style="color:#0000cf;font-weight:bold">640</span><span style="color:#000">x150</span>
-<span style="color:#000">alt_text</span><span style="color:#a40000">:</span> <span style="color:#a40000">​</span> <span style="color:#4e9a06">&#34; ​ {{​ ​ replace​ ​ .Name​ ​ &#34;</span><span style="color:#000">-</span><span style="color:#4e9a06">&#34; &#34;</span> <span style="color:#4e9a06">&#34; | title }} screenshot&#34;</span>
-<span style="color:#000">summary</span><span style="color:#a40000">:</span> <span style="color:#a40000">​</span> <span style="color:#4e9a06">&#34; ​ Summary​ ​ of​ ​ the​ ​ {{​ ​ replace​ ​ .Name​ ​ &#34;</span><span style="color:#000">-</span><span style="color:#4e9a06">&#34; &#34;</span> <span style="color:#4e9a06">&#34; | title }} project&#34;</span>
-<span style="color:#000">tech_used</span><span style="color:#a40000">:</span>
-<span style="color:#000">-</span> <span style="color:#a40000">​</span> <span style="color:#000">JavaScript</span>
-<span style="color:#000">-</span> <span style="color:#a40000">​</span> <span style="color:#000">CSS</span>
-<span style="color:#000">-</span> <span style="color:#a40000">​</span> <span style="color:#000">HTML</span>
-<span style="color:#000">---</span>
-
-</code></pre></div><p><strong>Template</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">define</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;main&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-  <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;project-container&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">section</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;project-list&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">h2</span><span style="color:#000;font-weight:bold">&gt;</span>Projects<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">h2</span><span style="color:#000;font-weight:bold">&gt;</span>
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
-        <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">range</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">where</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Site.RegularPages</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;Type&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;in&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;projects&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-          <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.RelPermalink</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
-        <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-      <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
-    <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">section</span><span style="color:#000;font-weight:bold">&gt;</span>
-
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">section</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;project&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">h2</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Title</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">h2</span><span style="color:#000;font-weight:bold">&gt;</span>
-
-      <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Content</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">img</span> <span style="color:#c4a000">alt</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params.alt_text</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#c4a000">src</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params.image</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">h3</span><span style="color:#000;font-weight:bold">&gt;</span>Tech used<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">h3</span><span style="color:#000;font-weight:bold">&gt;</span>
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
-        <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">range</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.Params.tech_used</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-          <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span><span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#c4a000">.</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
-        <span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
-      <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
-
-    <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">section</span><span style="color:#000;font-weight:bold">&gt;</span>
-
-  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
-<span style="color:#8f5902;font-style:italic">{{</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">end</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic">}}</span>
+<span style="color:#000">urlpatterns</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span>
+    <span style="color:#000">path</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">include</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">router</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">urls</span><span style="color:#000;font-weight:bold">)),</span>
+    <span style="color:#000">path</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;api-auth/&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">include</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;rest_framework.urls&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">namespace</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;rest_framework&#39;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000;font-weight:bold">]</span>
+</code></pre></div><h2 id="installed-apps">installed apps</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#4e9a06">&#39;rest_framework&#39;</span><span style="color:#000;font-weight:bold">,</span>
 </code></pre></div>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-
-    Última modificación
-    September 26, 2021
-    : <a  href="https://github.com/lmorillas/dwes/commit/e135be8d7624c45878fddee7939417e9ced6a8bc">update (e135be8)</a>
 
 </div>
 
