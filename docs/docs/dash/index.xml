@@ -1,0 +1,96 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Desarrollo Web Entorno Servidor – Dash</title>
+    <link>https://lmorillas.github.io/dwes/docs/dash/</link>
+    <description>Recent content in Dash on Desarrollo Web Entorno Servidor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 21 Oct 2021 10:29:17 +0200</lastBuildDate>
+    
+	  <atom:link href="https://lmorillas.github.io/dwes/docs/dash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Introducción</title>
+      <link>https://lmorillas.github.io/dwes/docs/dash/intro/</link>
+      <pubDate>Thu, 21 Oct 2021 10:29:17 +0200</pubDate>
+      
+      <guid>https://lmorillas.github.io/dwes/docs/dash/intro/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dash.plotly.com/&#34;&gt;https://dash.plotly.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dash.plotly.com/installation&#34;&gt;https://dash.plotly.com/installation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;qué-es-dash&#34;&gt;¿Qué es Dash?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://dash.plotly.com/introduction&#34;&gt;https://dash.plotly.com/introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Dash is an open source framework for building data visualization interfaces. Released in 2017 as a Python library, it’s grown to include implementations for R and Julia. Dash helps data scientists build analytical web applications without requiring advanced web development knowledge.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Written on top of Plotly.js and React.js, Dash is ideal for building and deploying data apps with customized user interfaces. It&amp;rsquo;s particularly suited for anyone who works with data.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;instalación&#34;&gt;Instalación&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;env&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ pip install dash pandas
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;Seguir tutorial de &lt;a href=&#34;https://dash.plotly.com&#34;&gt;https://dash.plotly.com&lt;/a&gt; :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalación&lt;/li&gt;
+&lt;li&gt;Layout&lt;/li&gt;
+&lt;li&gt;Basic Callbacks&lt;/li&gt;
+&lt;li&gt;Interctive Graphing and Crossfiltering&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: App aguacates</title>
+      <link>https://lmorillas.github.io/dwes/docs/dash/aguacates/</link>
+      <pubDate>Thu, 21 Oct 2021 10:29:17 +0200</pubDate>
+      
+      <guid>https://lmorillas.github.io/dwes/docs/dash/aguacates/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://realpython.com/python-dash&#34;&gt;https://realpython.com/python-dash&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;creación-del-entorno&#34;&gt;Creación del entorno&lt;/h2&gt;
+&lt;h2 id=&#34;obtener-datos&#34;&gt;Obtener datos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;avocado.csv&#34;&gt;Datos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;definir-layout&#34;&gt;Definir Layout&lt;/h2&gt;
+&lt;h2 id=&#34;modificar-el-estilo&#34;&gt;Modificar el estilo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom Style&lt;/li&gt;
+&lt;li&gt;Mejorar aspecto&lt;/li&gt;
+&lt;li&gt;Assets externos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;añadir-interactividad&#34;&gt;Añadir interactividad&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;componentes&lt;/li&gt;
+&lt;li&gt;callbacks&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;despliegue-en-heroku&#34;&gt;Despliegue en Heroku&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
