@@ -11,7 +11,7 @@
     <lastmod>2021-12-13T07:08:50+01:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/dash/intro/</loc>
-    <lastmod>2021-10-21T10:29:17+02:00</lastmod>
+    <lastmod>2022-02-13T10:29:13+01:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/staticsitegen/</loc>
     <lastmod>2021-09-25T17:05:42+02:00</lastmod>
@@ -26,7 +26,7 @@
     <lastmod>2021-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/dash/aguacates/</loc>
-    <lastmod>2021-10-21T10:29:17+02:00</lastmod>
+    <lastmod>2022-02-13T10:29:13+01:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/django/</loc>
     <lastmod>2021-10-25T21:02:59+02:00</lastmod>
@@ -64,6 +64,9 @@
     <loc>https://lmorillas.github.io/dwes/docs/django/modelos/</loc>
     <lastmod>2021-11-01T21:08:43+01:00</lastmod>
   </url><url>
+    <loc>https://lmorillas.github.io/dwes/docs/dash/chuleta_pandas/</loc>
+    <lastmod>2021-10-21T10:29:17+02:00</lastmod>
+  </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/django/sitio_administrativo/</loc>
     <lastmod>2021-12-13T07:08:50+01:00</lastmod>
   </url><url>
@@ -82,6 +85,9 @@
     <loc>https://lmorillas.github.io/dwes/docs/django/home_page/</loc>
     <lastmod>2021-11-01T21:08:43+01:00</lastmod>
   </url><url>
+    <loc>https://lmorillas.github.io/dwes/docs/dash/datatable/</loc>
+    <lastmod>2021-10-21T10:29:17+02:00</lastmod>
+  </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/wagtail/maquetar_paginas/</loc>
     <lastmod>2022-01-11T22:24:38+01:00</lastmod>
   </url><url>
@@ -95,6 +101,9 @@
     <lastmod>2021-11-08T07:38:57+01:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/dash/</loc>
+    <lastmod>2022-02-13T10:29:13+01:00</lastmod>
+  </url><url>
+    <loc>https://lmorillas.github.io/dwes/docs/dash/curso_ow/</loc>
     <lastmod>2021-10-21T10:29:17+02:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/django/formularios/</loc>
@@ -252,6 +261,12 @@
   </url><url>
     <loc>https://lmorillas.github.io/dwes/tags/wagtail/</loc>
     <lastmod>2021-12-22T09:44:16+01:00</lastmod>
+  </url><url>
+    <loc>https://lmorillas.github.io/dwes/tags/dash/</loc>
+    <lastmod>2021-10-21T10:29:17+02:00</lastmod>
+  </url><url>
+    <loc>https://lmorillas.github.io/dwes/tags/pandas/</loc>
+    <lastmod>2021-10-21T10:29:17+02:00</lastmod>
   </url><url>
     <loc>https://lmorillas.github.io/dwes/docs/scraping/scrapy/</loc>
     <lastmod>2022-01-11T22:24:38+01:00</lastmod>
