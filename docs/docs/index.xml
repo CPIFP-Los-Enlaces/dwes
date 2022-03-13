@@ -834,7 +834,6 @@ wagtail_bootstrap_blog
 
 &lt;/div&gt;
 
-&lt;h2 id=&#34;borrador&#34;&gt;BORRADOR&lt;/h2&gt;
 &lt;p&gt;El proyecto consistirá en una web a partir de la web hecha en clase (fork del tutorial de wagtail)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -977,10 +976,10 @@ Django usa: &lt;strong&gt;MVT&lt;/strong&gt;: Permite que las templates puedan d
     
     <item>
       <title>Docs: Uso de tablas</title>
-      <link>https://lmorillas.github.io/dwes/docs/proyectos/centros_educativos/</link>
+      <link>https://lmorillas.github.io/dwes/docs/proyectos/uso-tablas/</link>
       <pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate>
       
-      <guid>https://lmorillas.github.io/dwes/docs/proyectos/centros_educativos/</guid>
+      <guid>https://lmorillas.github.io/dwes/docs/proyectos/uso-tablas/</guid>
       <description>
         
         
@@ -1015,6 +1014,56 @@ Django usa: &lt;strong&gt;MVT&lt;/strong&gt;: Permite que las templates puedan d
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Centros educativos</title>
+      <link>https://lmorillas.github.io/dwes/docs/proyectos/centros-educativos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lmorillas.github.io/dwes/docs/proyectos/centros-educativos/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Descripción&lt;/strong&gt;: proyecto de aplicación usando el CMS Wagtail&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;objetivo&#34;&gt;Objetivo&lt;/h2&gt;
+&lt;p&gt;Añadir una aplicación de centros educativos al proyecto anterior.&lt;/p&gt;
+&lt;p&gt;La aplicación tendrá una página principal (tipo índice) que mostrará los datos de todos los centros o una selección que pueda hacer el usuario&lt;/p&gt;
+&lt;h2 id=&#34;datos&#34;&gt;Datos&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://opendata.aragon.es/datos/catalogo/dataset/educacion-y-cultura&#34;&gt;https://opendata.aragon.es/datos/catalogo/dataset/educacion-y-cultura&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;En concreto usaremos el &lt;code&gt;json&lt;/code&gt; de los centros educativos de Aragón: &lt;a href=&#34;https://opendata.aragon.es/GA_OD_Core/download?view_id=167&amp;amp;formato=json&#34;&gt;https://opendata.aragon.es/GA_OD_Core/download?view_id=167&amp;amp;formato=json&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;modelo-de-centros&#34;&gt;Modelo de Centros&lt;/h2&gt;
+&lt;p&gt;Datos que interesan. Los sacaremos del json y los cargaremos de forma automática en la aplicación.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Código del centro (idcentrorc)&lt;/li&gt;
+&lt;li&gt;Nombre del centro&lt;/li&gt;
+&lt;li&gt;Tipo de centro&lt;/li&gt;
+&lt;li&gt;Naturaleza (público o privado)&lt;/li&gt;
+&lt;li&gt;Localidad&lt;/li&gt;
+&lt;li&gt;Dirección&lt;/li&gt;
+&lt;li&gt;Código postal&lt;/li&gt;
+&lt;li&gt;Coordenadas (longitud y latitud)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;páginas&#34;&gt;Páginas&lt;/h2&gt;
+&lt;p&gt;La aplicación tendrá:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una página con un tabla con el listado paginado y la posibilidad de buscar por nombre del centro o localidad.&lt;/li&gt;
+&lt;li&gt;Una página con el mapa de todos los centros&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;admin&#34;&gt;Admin&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;list_view tabulado con datos de nombre, código, naturaleza y localidad&lt;/li&gt;
+&lt;li&gt;búsqueda por nombre y localidad&lt;/li&gt;
+&lt;li&gt;fitro por tipo de centro y naturaleza.&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
@@ -3702,32 +3751,6 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser&lt;span style=&#34;c
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tbody&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;table&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Extensiones</title>
-      <link>https://lmorillas.github.io/dwes/docs/wagtail/extensiones/</link>
-      <pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate>
-      
-      <guid>https://lmorillas.github.io/dwes/docs/wagtail/extensiones/</guid>
-      <description>
-        
-        
-        
-
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://datatables.net/&#34;&gt;https://datatables.net/&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Necesita jQuery&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-
-
       </description>
     </item>
     

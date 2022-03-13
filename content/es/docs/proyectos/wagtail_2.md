@@ -11,7 +11,6 @@ tags: [proyectos]
 **Descripción**: proyecto de una web usando el CMS Wagtail
 {{% /pageinfo %}}
 
-## BORRADOR
 
 El proyecto consistirá en una web a partir de la web hecha en clase (fork del tutorial de wagtail)
 

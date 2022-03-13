@@ -731,7 +731,15 @@ Versión imprimible multipagina.
     
     
 	
-<li>9.3: <a href="#pg-d9e5431301d222bf85258c44b7066df4">Uso de tablas</a></li>
+<li>9.3: <a href="#pg-ba0194b8fc9081b8780c25e49b9e048c">Uso de tablas</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9.4: <a href="#pg-04773b4e79dacaccc1f661d633c89693">Centros educativos</a></li>
 
 
     
@@ -5132,7 +5140,6 @@ This component was written from scratch in React.js specifically for the Dash co
 
 </div>
 
-<h2 id="borrador">BORRADOR</h2>
 <p>El proyecto consistirá en una web a partir de la web hecha en clase (fork del tutorial de wagtail)</p>
 <ul>
 <li>
@@ -5197,7 +5204,7 @@ This component was written from scratch in React.js specifically for the Dash co
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d9e5431301d222bf85258c44b7066df4">9.3 - Uso de tablas</h1>
+	<h1 id="pg-ba0194b8fc9081b8780c25e49b9e048c">9.3 - Uso de tablas</h1>
     <div class="lead">Ejercicios con datos y tablas</div>
 	
 
@@ -5230,6 +5237,60 @@ This component was written from scratch in React.js specifically for the Dash co
 </ul>
 </li>
 </ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-04773b4e79dacaccc1f661d633c89693">9.4 - Centros educativos</h1>
+    
+	
+
+<div class="pageinfo pageinfo-primary">
+<p><strong>Descripción</strong>: proyecto de aplicación usando el CMS Wagtail</p>
+
+</div>
+
+<h2 id="objetivo">Objetivo</h2>
+<p>Añadir una aplicación de centros educativos al proyecto anterior.</p>
+<p>La aplicación tendrá una página principal (tipo índice) que mostrará los datos de todos los centros o una selección que pueda hacer el usuario</p>
+<h2 id="datos">Datos</h2>
+<p><a href="https://opendata.aragon.es/datos/catalogo/dataset/educacion-y-cultura">https://opendata.aragon.es/datos/catalogo/dataset/educacion-y-cultura</a></p>
+<p>En concreto usaremos el <code>json</code> de los centros educativos de Aragón: <a href="https://opendata.aragon.es/GA_OD_Core/download?view_id=167&amp;formato=json">https://opendata.aragon.es/GA_OD_Core/download?view_id=167&amp;formato=json</a></p>
+<h2 id="modelo-de-centros">Modelo de Centros</h2>
+<p>Datos que interesan. Los sacaremos del json y los cargaremos de forma automática en la aplicación.</p>
+<ul>
+<li>Código del centro (idcentrorc)</li>
+<li>Nombre del centro</li>
+<li>Tipo de centro</li>
+<li>Naturaleza (público o privado)</li>
+<li>Localidad</li>
+<li>Dirección</li>
+<li>Código postal</li>
+<li>Coordenadas (longitud y latitud)</li>
+</ul>
+<h2 id="páginas">Páginas</h2>
+<p>La aplicación tendrá:</p>
+<ul>
+<li>Una página con un tabla con el listado paginado y la posibilidad de buscar por nombre del centro o localidad.</li>
+<li>Una página con el mapa de todos los centros</li>
+</ul>
+<h2 id="admin">Admin</h2>
+<ul>
+<li>list_view tabulado con datos de nombre, código, naturaleza y localidad</li>
+<li>búsqueda por nombre y localidad</li>
+<li>fitro por tipo de centro y naturaleza.</li>
+</ul>
 
 </div>
 
