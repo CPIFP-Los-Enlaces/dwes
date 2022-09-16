@@ -23,14 +23,10 @@ Este módulo profesional contiene la formación necesaria para desempeñar las  
 * Las actividades profesionales asociadas a esta función se aplican en el desarrollo y la  adaptación de servicios y aplicaciones para servidores de aplicaciones y servidores Web.
 
 ## Plan general del curso
-Introduciremos los contenidos y destrezas siguiendo los siguientes bloques:
-* Creación de webs estáticas con Hugo
-* Introducción al lenguaje Python
-* Desarrollo de webs con Django
-* Desarrollo de CMS con Wagtail
-* Integración de APIs con Django/Wagtail
-* Webs de visualización de datos con plotly/Dash
-* Extracción de datos con técnicas de scraping
+
+Ver sitio Aeducar del curso
 
 ## Valoración/Evaluación
-La evaluación se hará mediante proyectos gestionados en github.
+
+Ver sitio Aeducar del curso
+
