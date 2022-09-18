@@ -22,8 +22,6 @@ description:
 **Requisito**: Instalar hugo
 
 ``` bash
-
-``` bash
 $ hugo new site acme-corporation --format yaml
 
 ```
