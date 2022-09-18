@@ -80,7 +80,113 @@
 &lt;ul>
 &lt;li>Usar variables de entorno en &lt;code>docker-compose.yml&lt;/code> y en &lt;code>settings.py&lt;/code>&lt;/li>
 &lt;li>Puedes usar un fichero &lt;code>.env&lt;/code> para configurar las variables de entorno.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Generación de archivos CSV</title><link>https://lmorillas.github.io/dwes/docs/django-2/salidacsv/</link><pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate><guid>https://lmorillas.github.io/dwes/docs/django-2/salidacsv/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Mi primera web con Hugo</title><link>https://lmorillas.github.io/dwes/docs/staticsitegen/weben1minuto/</link><pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate><guid>https://lmorillas.github.io/dwes/docs/staticsitegen/weben1minuto/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>&lt;strong>Objetivo:&lt;/strong> Construcción de una primera web&lt;/p>
+&lt;p>&lt;strong>Contenidos:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Comando &lt;code>hugo&lt;/code>&lt;/li>
+&lt;li>Configurar un sitio con hugo con temas y contenido&lt;/li>
+&lt;li>Diseño de la estructura de un sitio basado en Hugo&lt;/li>
+&lt;li>Pipeline de despliegue continuo&lt;/li>
+&lt;li>Análisis de prestaciones y mantenimiento&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h2 id="creación-del-sitio">Creación del sitio&lt;/h2>
+&lt;p>&lt;strong>Requisito&lt;/strong>: Instalar hugo&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">```&lt;/span> bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hugo new site acme-corporation --format yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Estructura creada:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>archetypes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>config.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>content
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>layouts
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>static
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>themes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Aquí tienes una estructura más detallada: &lt;a href="https://drek4537l1klr.cloudfront.net/jain/Figures/CH02_F03_Jain.png">https://drek4537l1klr.cloudfront.net/jain/Figures/CH02_F03_Jain.png&lt;/a> (c) Libro &lt;em>Hugo in Action&lt;/em>&lt;/p>
+&lt;h2 id="creación-del-repositorio">Creación del repositorio&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> acme-corporation
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git init .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git add *
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -m &lt;span style="color:#4e9a06">&amp;#34;Creación del esqueleto de la web&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="añadir-un-tema">Añadir un tema&lt;/h2>
+&lt;p>Podemos hacerlo de tres formas:&lt;/p>
+&lt;ul>
+&lt;li>Como un módulo de Hugo&lt;/li>
+&lt;li>Con git submodules&lt;/li>
+&lt;li>Copiando la carpeta del tema&lt;/li>
+&lt;/ul>
+&lt;p>Vamos a usar el último método.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="https://github.com/lmorillas/Eclectic">https://github.com/lmorillas/Eclectic&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>Descargar a la carpeta themes. Renombrar la carpeta del tema a &lt;code>Eclectic&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Modificar &lt;code>config.yaml&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>theme: Eclectic
+&lt;/code>&lt;/pre>&lt;h2 id="servidor-de-desarrollo">Servidor de desarrollo&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hugo server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La primera vez optimiza los recursos y genera cachés para el sitio. Por eso tarda maś.&lt;/p>
+&lt;h2 id="añadir-contenido">Añadir contenido&lt;/h2>
+&lt;h3 id="configuración">Configuración&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">baseURL&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">https://example.org/&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">languageCode&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">es-es &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Acme Corporation &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">theme&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Eclectic &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">author&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">facebook&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;https://facebook.com/example&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">twitter&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;https://twitter.com/example&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">email&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;contact@example.org&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Acme Corporation&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">location&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Zaragoza&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">phone&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">(999) 999-9999 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">hours&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;**Lunes-Viernes** 9:00AM - 6:00PM&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">menu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">main&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">about &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Acerca de &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">url&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">/about &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">weight&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">contact&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Contacto &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">url&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">/contacto &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">weight&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">200&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">params&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">color&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;#4f46e5&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">copyright&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Copyright &amp;amp;copy; 2022 Acme Corporation. Todos los derechos reservados.&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">footer&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">About&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">content&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> Acme Corporation is the world&amp;#39;s leading
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> manufacturer of digital shapes. From squares and
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> circles to triangles and hexagons, we have it
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> all. Browse through our collection of various
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> forms with different thicknesses and line styles.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> We shape the world. You live in it.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Publicaciones recientes&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">recents&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">blog&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">recentCount&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Contact Us&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">contact&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="página-de-inicio">Página de inicio&lt;/h3>
+&lt;p>Landing page&lt;/p>
+&lt;p>&lt;a href="https://github.com/hugoinaction/hugoinaction/blob/chapter-02-resources/05/layouts/index.html">https://github.com/hugoinaction/hugoinaction/blob/chapter-02-resources/05/layouts/index.html&lt;/a>&lt;/p>
+&lt;p>En una primera versión la editamos directamente.&lt;/p>
+&lt;blockquote>
+&lt;p>layouts/index.html&lt;/p>
+&lt;/blockquote>
+&lt;p>Mira este ejemplo: &lt;a href="https://github.com/hugoinaction/hugoinaction/blob/chapter-02-resources/05/layouts/index.html">https://github.com/hugoinaction/hugoinaction/blob/chapter-02-resources/05/layouts/index.html&lt;/a>&lt;/p></description></item><item><title>Docs: Generación de archivos CSV</title><link>https://lmorillas.github.io/dwes/docs/django-2/salidacsv/</link><pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate><guid>https://lmorillas.github.io/dwes/docs/django-2/salidacsv/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;ul>
 &lt;li>&lt;a href="https://docs.djangoproject.com/en/4.0/howto/outputting-csv/">https://docs.djangoproject.com/en/4.0/howto/outputting-csv/&lt;/a>&lt;/li>
@@ -122,10 +228,78 @@
 &lt;li>Layout&lt;/li>
 &lt;li>Basic Callbacks&lt;/li>
 &lt;li>Interctive Graphing and Crossfiltering&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Primera tarea</title><link>https://lmorillas.github.io/dwes/docs/staticsitegen/primeratarea/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>https://lmorillas.github.io/dwes/docs/staticsitegen/primeratarea/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Proyecto Django - Primer trimestre</title><link>https://lmorillas.github.io/dwes/docs/proyectos/django_1/</link><pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate><guid>https://lmorillas.github.io/dwes/docs/proyectos/django_1/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>&lt;strong>Descripción&lt;/strong>: proyecto de una web personal con altas, bajas, modificaciones y listados de datos.&lt;/p>
+&lt;/div>
+&lt;h2 id="requisitos">REQUISITOS&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>El proyecto estará gestionado en un repositorio de código git con un remoto en github. Accesible por el profesor (1 punto)&lt;/p>
+&lt;ul>
+&lt;li>Habrá una gestión correcta de cambios con comentarios claros&lt;/li>
+&lt;li>Contendrá un &lt;strong>README.md&lt;/strong> con la descripción del proyecto y un método de instalación&lt;/li>
+&lt;li>Un &lt;strong>.gitignore&lt;/strong> con las extensiones que no queremos que se suban al repositorio&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Gestión del proyecto (1 punto)&lt;/p>
+&lt;ul>
+&lt;li>Creación de un entorno virtual con &lt;strong>requirements.txt&lt;/strong> para indicar las dependencias&lt;/li>
+&lt;li>El directorio &lt;strong>env&lt;/strong> no se incluirá en el repositorio.&lt;/li>
+&lt;li>Todas las funciones y clases estarán documentadas.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Models&lt;/strong> (2 puntos)&lt;/p>
+&lt;ul>
+&lt;li>Gestión correcta de datos (tipos de datos y relaciones)&lt;/li>
+&lt;li>Al menos 3 modelos con relaciones entre ellos&lt;/li>
+&lt;li>Todos tendrán método &lt;strong>&lt;strong>str&lt;/strong>&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>urls&lt;/strong> (1 punto)&lt;/p>
+&lt;ul>
+&lt;li>Urls generales y la aplicación para listados, altas, bajas y modificaciones&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Hará uso del &lt;strong>Admin&lt;/strong> al menos para listados con filtros y búsquedas. (1 punto)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>views&lt;/strong> (2 punto)&lt;/p>
+&lt;ul>
+&lt;li>Uso de vistas tipo función y de tipo clase&lt;/li>
+&lt;li>Gestión correcta y segura de formularios&lt;/li>
+&lt;li>Las funcionalidades que modifican los datos tienen que estar limitadas a usuarios autenticados&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>templates&lt;/strong> (2 punto)&lt;/p>
+&lt;ul>
+&lt;li>Habrá herencia de una plantilla base&lt;/li>
+&lt;li>Habrá una barra de menús o sidebar en una plantilla aparte&lt;/li>
+&lt;li>bloques de contenido, extracss y extrajs&lt;/li>
+&lt;li>Gestión correcta de formularios&lt;/li>
+&lt;li>Bloques &lt;strong>if&lt;/strong> y &lt;strong>for&lt;/strong> para mostrar correctamente los datoss&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Hará una presentación de la aplicación ante los compañeros el día del examen del módulo. (1 punto)&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="fecha-limiete-de-entrega">FECHA LIMIETE DE ENTREGA&lt;/h2>
+&lt;p>8 de diciembre a las 20 horas.&lt;/p></description></item><item><title>Docs: Tarea Markdown</title><link>https://lmorillas.github.io/dwes/docs/staticsitegen/tareamarkdown/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>https://lmorillas.github.io/dwes/docs/staticsitegen/tareamarkdown/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>&lt;strong>Objetivo&lt;/strong>: Escritura de texto en markdown&lt;/p>
 &lt;p>Intenta escribir el siguiente texto en Markdown. Usa un visualizador de &lt;em>visual studio code&lt;/em> por ejemplo para ver el resultado.&lt;/p>
+&lt;p>&lt;strong>Recursos externos&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Guia Github&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.markdownguide.org/tools/">Más recursos&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;/div>
 &lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://gohugo.io">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
 &lt;p>There should be whitespace between paragraphs. Vape migas chillwave sriracha poutine try-hard distillery. Tattooed shabby chic small batch, pabst art party heirloom letterpress air plant pop-up. Sustainable chia skateboard art party banjo cardigan normcore affogato vexillologist quinoa meggings man bun master cleanse shoreditch readymade. Yuccie prism four dollar toast tbh cardigan iPhone, tumblr listicle live-edge VHS. Pug lyft normcore hot chicken biodiesel, actually keffiyeh thundercats photo booth pour-over twee fam food truck microdosing banh mi. Vice activated charcoal raclette unicorn live-edge post-ironic. Heirloom vexillologist coloring book, beard deep v letterpress echo park humblebrag tilde.&lt;/p>
@@ -349,9 +523,9 @@ bar := &amp;#34;foo&amp;#34;;
 &lt;/table>
 &lt;hr>
 &lt;p>Small images should be shown at their actual size.&lt;/p>
-&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="Picea">&lt;/p>
 &lt;p>Large images should always scale down and fit in the content container.&lt;/p>
-&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="">&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt="Picea">&lt;/p>
 &lt;p>&lt;em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.&lt;/em>&lt;/p>
 &lt;h2 id="components">Components&lt;/h2>
 &lt;h3 id="alerts">Alerts&lt;/h3>
@@ -379,69 +553,7 @@ This is a warning with a title.
 &lt;/div>
 &lt;/p>
 &lt;h2 id="another-heading">Another Heading&lt;/h2>
-&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p></description></item><item><title>Docs: Proyecto Django - Primer trimestre</title><link>https://lmorillas.github.io/dwes/docs/proyectos/django_1/</link><pubDate>Thu, 21 Oct 2021 10:36:54 +0200</pubDate><guid>https://lmorillas.github.io/dwes/docs/proyectos/django_1/</guid><description>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>&lt;strong>Descripción&lt;/strong>: proyecto de una web personal con altas, bajas, modificaciones y listados de datos.&lt;/p>
-&lt;/div>
-&lt;h2 id="requisitos">REQUISITOS&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>El proyecto estará gestionado en un repositorio de código git con un remoto en github. Accesible por el profesor (1 punto)&lt;/p>
-&lt;ul>
-&lt;li>Habrá una gestión correcta de cambios con comentarios claros&lt;/li>
-&lt;li>Contendrá un &lt;strong>README.md&lt;/strong> con la descripción del proyecto y un método de instalación&lt;/li>
-&lt;li>Un &lt;strong>.gitignore&lt;/strong> con las extensiones que no queremos que se suban al repositorio&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Gestión del proyecto (1 punto)&lt;/p>
-&lt;ul>
-&lt;li>Creación de un entorno virtual con &lt;strong>requirements.txt&lt;/strong> para indicar las dependencias&lt;/li>
-&lt;li>El directorio &lt;strong>env&lt;/strong> no se incluirá en el repositorio.&lt;/li>
-&lt;li>Todas las funciones y clases estarán documentadas.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Models&lt;/strong> (2 puntos)&lt;/p>
-&lt;ul>
-&lt;li>Gestión correcta de datos (tipos de datos y relaciones)&lt;/li>
-&lt;li>Al menos 3 modelos con relaciones entre ellos&lt;/li>
-&lt;li>Todos tendrán método &lt;strong>&lt;strong>str&lt;/strong>&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>urls&lt;/strong> (1 punto)&lt;/p>
-&lt;ul>
-&lt;li>Urls generales y la aplicación para listados, altas, bajas y modificaciones&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Hará uso del &lt;strong>Admin&lt;/strong> al menos para listados con filtros y búsquedas. (1 punto)&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>views&lt;/strong> (2 punto)&lt;/p>
-&lt;ul>
-&lt;li>Uso de vistas tipo función y de tipo clase&lt;/li>
-&lt;li>Gestión correcta y segura de formularios&lt;/li>
-&lt;li>Las funcionalidades que modifican los datos tienen que estar limitadas a usuarios autenticados&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>templates&lt;/strong> (2 punto)&lt;/p>
-&lt;ul>
-&lt;li>Habrá herencia de una plantilla base&lt;/li>
-&lt;li>Habrá una barra de menús o sidebar en una plantilla aparte&lt;/li>
-&lt;li>bloques de contenido, extracss y extrajs&lt;/li>
-&lt;li>Gestión correcta de formularios&lt;/li>
-&lt;li>Bloques &lt;strong>if&lt;/strong> y &lt;strong>for&lt;/strong> para mostrar correctamente los datoss&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Hará una presentación de la aplicación ante los compañeros el día del examen del módulo. (1 punto)&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="fecha-limiete-de-entrega">FECHA LIMIETE DE ENTREGA&lt;/h2>
-&lt;p>8 de diciembre a las 20 horas.&lt;/p></description></item><item><title>Docs: Segunda tarea</title><link>https://lmorillas.github.io/dwes/docs/staticsitegen/segundatarea/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>https://lmorillas.github.io/dwes/docs/staticsitegen/segundatarea/</guid><description>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p></description></item><item><title>Docs: Segunda tarea</title><link>https://lmorillas.github.io/dwes/docs/staticsitegen/segundatarea/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>https://lmorillas.github.io/dwes/docs/staticsitegen/segundatarea/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>&lt;strong>Objetivo:&lt;/strong> Construcción de un primer sitio sencillo con un tema simple.&lt;/p>
 &lt;p>&lt;strong>Recursos externos:&lt;/strong> Tema de hugo &lt;a href="https://github.com/EmielH/tale-hugo">https://github.com/EmielH/tale-hugo&lt;/a>&lt;/p>
@@ -2765,83 +2877,4 @@ Ejemplo en plantilla de django con coordenadas en variable &lt;strong>coords&lt;
 &lt;ul>
 &lt;li>&lt;a href="https://docs.wagtail.io/en/stable/advanced_topics/testing.html">https://docs.wagtail.io/en/stable/advanced_topics/testing.html&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/div></description></item><item><title>Docs: Algunas notas de repaso</title><link>https://lmorillas.github.io/dwes/docs/staticsitegen/notas-repaso/</link><pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate><guid>https://lmorillas.github.io/dwes/docs/staticsitegen/notas-repaso/</guid><description>
-&lt;h2 id="estructura-del-sitio">Estructura del sitio&lt;/h2>
-&lt;pre tabindex="0">&lt;code>misitio
-├── archetypes
-| └── default.md
-├── content
-├── data
-├── layouts
-| ├── _default
-| | └── baseof.html
-| └── index.html
-├── static
-├── themes
-└── config.toml
-&lt;/code>&lt;/pre>&lt;h2 id="un-tutorial">Un tutorial&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://hugo-mini-course.netlify.app/sections/templating/singlepage/">https://hugo-mini-course.netlify.app/sections/templating/singlepage/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="sintaxis-de-templates">Sintaxis de templates&lt;/h2>
-&lt;p>&lt;strong>Variables&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go-html-template" data-lang="go-html-template">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#c4a000">.Title&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Contenido md de la página&lt;/strong>
-&lt;code>{{.Content}}&lt;/code>&lt;/p>
-&lt;p>&lt;strong>Bucles&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go-html-template" data-lang="go-html-template">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">range&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#c4a000">.Pages.ByWeight&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">li&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">a&lt;/span> &lt;span style="color:#c4a000">href&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#c4a000">.Permalink&lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#c4a000">.Date.Format&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;2006-01-02&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span> | &lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#c4a000">.Title&lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">a&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">li&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="proceso-de-imágenes">Proceso de imágenes&lt;/h2>
-&lt;p>&lt;a href="https://gohugo.io/content-management/image-processing/">https://gohugo.io/content-management/image-processing/&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{{&lt;/span> &lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000">asset&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">resources&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;/duck.png&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{{&lt;/span> &lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000">img&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000">asset&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fit&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;600x400&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">figure&lt;/span> &lt;span style="color:#000">class&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;image is-3by2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">img&lt;/span> &lt;span style="color:#000">alt&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Yellow Duck&amp;#34;&lt;/span> &lt;span style="color:#000">src&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ $img.RelPermalink }}&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">/&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">/&lt;/span>&lt;span style="color:#000">figure&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tema-sencillo-pare-test">Tema sencillo pare test&lt;/h2>
-&lt;p>&lt;a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme&lt;/a>&lt;/p>
-&lt;h2 id="trabajando-con-ficheros-de-datos">Trabajando con ficheros de datos:&lt;/h2>
-&lt;p>&lt;code>data/socialmedia.json&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;accounts&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Twitter&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;url&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://twitter.com/bphogan&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;LinkedIn&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;url&amp;#34;&lt;/span>&lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#a40000">​&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://linkedin.com/in/bphogan&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go-html-template" data-lang="go-html-template">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">h3&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>Social Media&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">h3&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ul&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">range&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#c4a000">.Site.Data.socialmedia.accounts&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">li&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">a&lt;/span> &lt;span style="color:#c4a000">href&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">​&lt;/span> &lt;span style="color:#a40000">&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#c4a000">.url&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#a40000">&amp;#34;​&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#c4a000">.name&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">a&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">li&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ul&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Ejemplo csv remoto&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go-html-template" data-lang="go-html-template">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">thead&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tr&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">th&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>Name&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">th&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">th&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>Position&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">th&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">th&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>Salary&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">th&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tr&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">thead&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tbody&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$url&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;https://example.com/finance/employee-salaries.csv&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$sep&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">range&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$r&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">getCSV&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$sep&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$url&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tr&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">td&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">index&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$r&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">td&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">td&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">index&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$r&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">td&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">td&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">index&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">$r&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">td&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tr&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">{{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tbody&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">table&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>

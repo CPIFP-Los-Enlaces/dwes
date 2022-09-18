@@ -1,7 +1,7 @@
 ---
-title: "Primera tarea"
+title: "Tarea Markdown"
 date: 2017-01-05
-weight: 2
+weight: 3
 description: >
   
 ---
@@ -10,6 +10,12 @@ description: >
 **Objetivo**: Escritura de texto en markdown
 
 Intenta escribir el siguiente texto en Markdown. Usa un visualizador de *visual studio code* por ejemplo para ver el resultado.
+
+**Recursos externos**: 
+* [Guia Github](https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Más recursos](https://www.markdownguide.org/tools/)
+
 {{% /pageinfo %}}
 
 
@@ -191,11 +197,11 @@ Inline code inside table cells should still be distinguishable.
 
 Small images should be shown at their actual size.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg)
+![Picea](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg)
 
 Large images should always scale down and fit in the content container.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg)
+![Picea](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg)
 
 _The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA._
 

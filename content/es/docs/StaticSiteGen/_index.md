@@ -19,6 +19,29 @@ Introducción a la generación de sitios web con HUGO
 * Eficiencia
 * Consistencia de contenidos y formatos
 
+## Arquitectura JAMSTACK
+### ¿Qué es JAMSTACK?
+* JAMstack is a modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup.
+* [https://jamstack.org/](https://jamstack.org/)
+
+![Tradicional](https://blog.openreplay.com/static/5d89407f8de6ba62afa35daec25043fe/1a152/img3.png)
+
+![Jamstack](https://blog.openreplay.com/static/12870361e84816a70cbd0a174338fa61/1a152/img4.png)
+
+![Jamstack](https://blog.openreplay.com/static/5d89407f8de6ba62afa35daec25043fe/1a152/img5.png)
+
+
+## Generadores de sitios estáticos
+* [Lista de generdores](https://jamstack.org/generators/)
+* Nosotros usaremos [HUGO](https://gohugo.io/)
+
+## Ejemplos
+
+* https://getbootstrap.com
+* https://letsencrypt.org
+* https://www.smashingmagazine.com
+
+
 
 ## Instalación 
 
