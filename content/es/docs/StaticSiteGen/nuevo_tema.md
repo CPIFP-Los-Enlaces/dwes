@@ -182,6 +182,8 @@ Modificamos el partial `head.html` para incluir el css
 ## Tareas
 
 * Crear un repositorio con esta tema en github
+  * Luego podremos añadir el tema con  ```git submodule add https://github.com/<url_del_tema>.git themes/basico```
+  
 * Mueve la navegación a un nuevo **partial**
 * Modifica el tema para que use boostrap. Más fácil usando el CDN de bootstrap.
 * Crea un tema especial para los viajes. Tendrá que incluir un mapa con  [Leaflet](https://leafletjs.com/) https://leafletjs.com/examples/quick-start/

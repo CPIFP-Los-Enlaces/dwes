@@ -589,10 +589,20 @@ content/posts/_index.md
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>{{ range .Pages }}&lt;/code> itera sobre las páginas que se encuentran en el directorio actual (sección).&lt;/p>
 &lt;h2 id="tareas">Tareas&lt;/h2>
 &lt;ul>
-&lt;li>Crear un repositorio con esta tema en github&lt;/li>
-&lt;li>Mueve la navegación a un nuevo &lt;strong>partial&lt;/strong>&lt;/li>
-&lt;li>Modifica el tema para que use boostrap. Más fácil usando el CDN de bootstrap.&lt;/li>
-&lt;li>Crea un tema especial para los viajes. Tendrá que incluir un mapa con &lt;a href="https://leafletjs.com/">Leaflet&lt;/a> &lt;a href="https://leafletjs.com/examples/quick-start/">https://leafletjs.com/examples/quick-start/&lt;/a>
+&lt;li>
+&lt;p>Crear un repositorio con esta tema en github&lt;/p>
+&lt;ul>
+&lt;li>Luego podremos añadir el tema con &lt;code>git submodule add https://github.com/&amp;lt;url_del_tema&amp;gt;.git themes/basico&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Mueve la navegación a un nuevo &lt;strong>partial&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Modifica el tema para que use boostrap. Más fácil usando el CDN de bootstrap.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Crea un tema especial para los viajes. Tendrá que incluir un mapa con &lt;a href="https://leafletjs.com/">Leaflet&lt;/a> &lt;a href="https://leafletjs.com/examples/quick-start/">https://leafletjs.com/examples/quick-start/&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>El mapa irá en el html de la página (no en el .md)&lt;/li>
 &lt;li>Tendremos que introducir las coordenadas de los viajes en el .md (frontmatter)&lt;/li>
