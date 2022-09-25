@@ -99,7 +99,7 @@ themes/basico/
 
 ### themes/basico/layouts/index.html
 
-**Para Home Page**
+**Para Home Page** con el contenido que encuentre en `content/_index.md`
 
 ```go-html-template
 {{ define "main" }}
@@ -107,9 +107,83 @@ themes/basico/
 {{ end }}
 ```
 
+### themes/basico/layouts/_default/single.html
+
+**Páginas individuales**
+
+{{ define "main" }}
+<h2>{{ .Title }}</h2>
+{{ .Content }}
+{{ end }}
+
+### Algo de estilo
+
+```basic_theme/portfolio/themes/basico/static/css/style.css```
+
+```css
+
+.container {
+margin: 0 auto;
+width: 80%;
+}
 
 
-### themes/basico/layouts/404.html
+nav, footer {
+background-color: #333;
+color: #fff;
+text-align: center;
+}
+
+nav {
+display: flex;
+flex-direction: column;
+}
+nav > a {
+flex: 1;
+text-align: center;
+text-decoration: none;color: #fff;
+}
+
+@media​ only screen and (min-width: 768px) {
+nav { flex-direction: row; }
+}
+
+```
+
+Modificamos el partial `head.html` para incluir el css
+
+```go-html-template
+<head>
+<meta charset=​ "utf-8"​ >
+<meta name=​ "viewport"​ content=​ "width=device-width, initial-scale=1"​ >
+<title>{{ .Site.Title }}</title>
+
+<link rel=​ "stylesheet"​ href=​ "{{ "​ css​ / ​ style​ . ​ css​ " ​ ​ | ​ relURL ​ }}"​ >
+...
+``` 
+
+### themes/basico/layouts/_default/list.html
+
+**Para listas de páginas**
 
 ```go-html-template
 {{ define "main" }}
+<h2>{{ .Title }}</h2>
+<ul>
+{{ range .Pages }}
+<li><a href=​ "{{ .RelPermalink }}"​ >{{ .Title }}</a></li>
+{{ end }}
+</ul>
+{{ end }}
+```
+
+```{{ range .Pages }}``` itera sobre las páginas que se encuentran en el directorio actual (sección).
+
+## Tareas
+
+* Crear un repositorio con esta tema en github
+* Mueve la navegación a un nuevo **partial**
+* Modifica el tema para que use boostrap. Más fácil usando el CDN de bootstrap.
+* Crea un tema especial para los viajes. Tendrá que incluir un mapa con  [Leaflet](https://leafletjs.com/) https://leafletjs.com/examples/quick-start/
+  * El mapa irá en el html de la página (no en el .md)
+  * Tendremos que introducir las coordenadas de los viajes en el .md (frontmatter)
