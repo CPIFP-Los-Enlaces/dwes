@@ -94,10 +94,9 @@ Se pueden modificar en el **frontmatter**: `slug, type y url`
 * Se pueden pasar valores por defecto a las páginas que descienden de una sección.
 
 Por ejemplo si ponemos en `content/blog/_index.md`
-```toml 
-title = 'Blog'
-[cascade]
-  banner = 'images/typewriter.jpg'
+```yaml 
+title: Blog
+banner: 'images/typewriter.jpg'
 ```
 Esta página y todas las que descienden de la sección `blog` devuelven `images/typewriter.jpg` en `.Params.banner` a no ser que tengan su propio banner o un ancestro más cercano lo modifique.
 

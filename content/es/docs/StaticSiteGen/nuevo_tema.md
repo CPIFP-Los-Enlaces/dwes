@@ -111,10 +111,12 @@ themes/basico/
 
 **Páginas individuales**
 
+```go-html-template
 {{ define "main" }}
 <h2>{{ .Title }}</h2>
 {{ .Content }}
 {{ end }}
+```
 
 ### Algo de estilo
 
