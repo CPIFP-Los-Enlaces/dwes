@@ -18,26 +18,43 @@
 <link rel="icon" type="image/png" href="/dwes/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/dwes/favicons/android-192x192.png" sizes="192x192">
 
-<title>Chuleta Pandas | Desarrollo Web Entorno Servidor</title>
-<meta name="description" content="Uso sencillo pandas
-">
-<meta property="og:title" content="Chuleta Pandas" />
-<meta property="og:description" content="Uso sencillo pandas
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://lmorillas.github.io/dwes/docs/dash/chuleta_pandas/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2021-10-21T10:29:17+02:00" />
-<meta property="article:modified_time" content="2022-02-15T07:07:11+01:00" /><meta property="og:site_name" content="Desarrollo Web Entorno Servidor" />
+<title>Menús | Desarrollo Web Entorno Servidor</title>
+<meta name="description" content="
 
-<meta itemprop="name" content="Chuleta Pandas">
-<meta itemprop="description" content="Uso sencillo pandas
-"><meta itemprop="datePublished" content="2021-10-21T10:29:17+02:00" />
-<meta itemprop="dateModified" content="2022-02-15T07:07:11+01:00" />
-<meta itemprop="wordCount" content="2">
-<meta itemprop="keywords" content="dash,pandas," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Chuleta Pandas"/>
-<meta name="twitter:description" content="Uso sencillo pandas
-"/>
+
+Creación de menús a partir de parámetros en config.yaml
+Documentación:
+
+https://gohugo.io/content-management/menus/ …">
+<meta property="og:title" content="Menús" />
+<meta property="og:description" content="Creación de menús a partir de parámetros en config.yaml
+Documentación:
+https://gohugo.io/content-management/menus/ https://gohugo.io/templates/menu-templates/ Creación de un nuevo tema https://gohugo.io/templates/menu-templates/#site-config-menus
+menu: main: - identifier: blog name: Sección de Blog title: sección blog url: /blog/ weight: -110 Nota: el identifier tiene que coincidir con el nombre de una sección
+Menús en el frontmatter También se pueden definir menús en el frontmatter de cada página
+--- title: Menu Templates linktitle: Menu Templates menu: docs: title: &#34;how to use menus in templates&#34; parent: &#34;templates&#34; weight: 130 --- Ejemplo en las plantillas &lt;ul&gt; {{ range ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lmorillas.github.io/dwes/docs/staticsitegen/menus/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-27T21:29:12+02:00" /><meta property="og:site_name" content="Desarrollo Web Entorno Servidor" />
+
+<meta itemprop="name" content="Menús">
+<meta itemprop="description" content="Creación de menús a partir de parámetros en config.yaml
+Documentación:
+https://gohugo.io/content-management/menus/ https://gohugo.io/templates/menu-templates/ Creación de un nuevo tema https://gohugo.io/templates/menu-templates/#site-config-menus
+menu: main: - identifier: blog name: Sección de Blog title: sección blog url: /blog/ weight: -110 Nota: el identifier tiene que coincidir con el nombre de una sección
+Menús en el frontmatter También se pueden definir menús en el frontmatter de cada página
+--- title: Menu Templates linktitle: Menu Templates menu: docs: title: &#34;how to use menus in templates&#34; parent: &#34;templates&#34; weight: 130 --- Ejemplo en las plantillas &lt;ul&gt; {{ range ."><meta itemprop="datePublished" content="2021-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-27T21:29:12+02:00" />
+<meta itemprop="wordCount" content="204">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Menús"/>
+<meta name="twitter:description" content="Creación de menús a partir de parámetros en config.yaml
+Documentación:
+https://gohugo.io/content-management/menus/ https://gohugo.io/templates/menu-templates/ Creación de un nuevo tema https://gohugo.io/templates/menu-templates/#site-config-menus
+menu: main: - identifier: blog name: Sección de Blog title: sección blog url: /blog/ weight: -110 Nota: el identifier tiene que coincidir con el nombre de una sección
+Menús en el frontmatter También se pueden definir menús en el frontmatter de cada página
+--- title: Menu Templates linktitle: Menu Templates menu: docs: title: &#34;how to use menus in templates&#34; parent: &#34;templates&#34; weight: 130 --- Ejemplo en las plantillas &lt;ul&gt; {{ range ."/>
 
 
 
@@ -102,8 +119,8 @@
   <input type="checkbox" id="m-dwesdocspresentacic3b3n-check"/>
   <label for="m-dwesdocspresentacic3b3n-check"><a href="/dwes/docs/presentaci%C3%B3n/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocspresentacic3b3n"><span class="">Presentación</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-dwesdocsstaticsitegen-li">
-  <input type="checkbox" id="m-dwesdocsstaticsitegen-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-dwesdocsstaticsitegen-li">
+  <input type="checkbox" id="m-dwesdocsstaticsitegen-check" checked/>
   <label for="m-dwesdocsstaticsitegen-check"><a href="/dwes/docs/staticsitegen/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocsstaticsitegen"><span class="">Generadores de Sitios Estáticos</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -123,9 +140,9 @@
   <input type="checkbox" id="m-dwesdocsstaticsitegennuevo_tema-check"/>
   <label for="m-dwesdocsstaticsitegennuevo_tema-check"><a href="/dwes/docs/staticsitegen/nuevo_tema/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsstaticsitegennuevo_tema"><span class="">Crear un tema</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsstaticsitegenmenus-li">
-  <input type="checkbox" id="m-dwesdocsstaticsitegenmenus-check"/>
-  <label for="m-dwesdocsstaticsitegenmenus-check"><a href="/dwes/docs/staticsitegen/menus/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsstaticsitegenmenus"><span class="">Menús</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-dwesdocsstaticsitegenmenus-li">
+  <input type="checkbox" id="m-dwesdocsstaticsitegenmenus-check" checked/>
+  <label for="m-dwesdocsstaticsitegenmenus-check"><a href="/dwes/docs/staticsitegen/menus/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-dwesdocsstaticsitegenmenus"><span class="td-sidebar-nav-active-item">Menús</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsstaticsitegenimagenes-li">
   <input type="checkbox" id="m-dwesdocsstaticsitegenimagenes-check"/>
@@ -337,8 +354,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-dwesdocsdash-li">
-  <input type="checkbox" id="m-dwesdocsdash-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-dwesdocsdash-li">
+  <input type="checkbox" id="m-dwesdocsdash-check"/>
   <label for="m-dwesdocsdash-check"><a href="/dwes/docs/dash/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocsdash"><span class="">Dash</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -350,9 +367,9 @@
   <input type="checkbox" id="m-dwesdocsdashaguacates-check"/>
   <label for="m-dwesdocsdashaguacates-check"><a href="/dwes/docs/dash/aguacates/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-dwesdocsdashaguacates"><span class="">App aguacates</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-dwesdocsdashchuleta_pandas-li">
-  <input type="checkbox" id="m-dwesdocsdashchuleta_pandas-check" checked/>
-  <label for="m-dwesdocsdashchuleta_pandas-check"><a href="/dwes/docs/dash/chuleta_pandas/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-dwesdocsdashchuleta_pandas"><span class="td-sidebar-nav-active-item">Chuleta Pandas</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsdashchuleta_pandas-li">
+  <input type="checkbox" id="m-dwesdocsdashchuleta_pandas-check"/>
+  <label for="m-dwesdocsdashchuleta_pandas-check"><a href="/dwes/docs/dash/chuleta_pandas/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-dwesdocsdashchuleta_pandas"><span class="">Chuleta Pandas</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-dwesdocsdashdatatable-li">
   <input type="checkbox" id="m-dwesdocsdashdatatable-check"/>
@@ -410,6 +427,15 @@
             
             
 
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#creación-de-un-nuevo-tema">Creación de un nuevo tema</a></li>
+    <li><a href="#menús-en-el-frontmatter">Menús en el frontmatter</a></li>
+    <li><a href="#ejemplo-en-las-plantillas">Ejemplo en las plantillas</a></li>
+    <li><a href="#tarea">Tarea</a></li>
+  </ul>
+</nav></div>
 
 
 
@@ -501,17 +527,17 @@
     <a href="https://lmorillas.github.io/dwes/docs/">Recursos</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://lmorillas.github.io/dwes/docs/dash/">Dash</a>
+    <a href="https://lmorillas.github.io/dwes/docs/staticsitegen/">Generadores de Sitios Estáticos</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://lmorillas.github.io/dwes/docs/dash/chuleta_pandas/" aria-disabled="true" class="btn-link disabled">Chuleta Pandas</a>
+    <a href="https://lmorillas.github.io/dwes/docs/staticsitegen/menus/" aria-disabled="true" class="btn-link disabled">Menús</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Chuleta Pandas</h1>
-	<div class="lead">Uso sencillo pandas</div>
+	<h1>Menús</h1>
+	
 	<header class="article-meta">
 		
 
@@ -523,17 +549,6 @@
     
 
 
-<div class="taxonomy taxonomy-terms-article taxo-tags">
-  <h5 class="taxonomy-title">Tags:</h5>
-  <ul class="taxonomy-terms">
-    
-      <li><a class="taxonomy-term" href="https://lmorillas.github.io/dwes/tags/dash/" data-taxonomy-term="dash"><span class="taxonomy-label">dash</span></a></li>
-    
-      <li><a class="taxonomy-term" href="https://lmorillas.github.io/dwes/tags/pandas/" data-taxonomy-term="pandas"><span class="taxonomy-label">pandas</span></a></li>
-    
-  </ul>
-</div>
-
   
 
 		
@@ -541,18 +556,82 @@
 	
 
 <div class="pageinfo pageinfo-primary">
+<p>Creación de menús a partir de parámetros en <code>config.yaml</code></p>
+<p><strong>Documentación:</strong></p>
 <ul>
-<li><a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></li>
-<li><a href="https://www.dataquest.io/blog/pandas-cheat-sheet/">https://www.dataquest.io/blog/pandas-cheat-sheet/</a></li>
+<li><a href="https://gohugo.io/content-management/menus/">https://gohugo.io/content-management/menus/</a></li>
+<li><a href="https://gohugo.io/templates/menu-templates/">https://gohugo.io/templates/menu-templates/</a></li>
 </ul>
 
 </div>
 
-
+<h2 id="creación-de-un-nuevo-tema">Creación de un nuevo tema</h2>
+<p><a href="https://gohugo.io/templates/menu-templates/#site-config-menus">https://gohugo.io/templates/menu-templates/#site-config-menus</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">menu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">main</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">identifier</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">blog</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Sección de Blog</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sección blog </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">url</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/blog/</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">weight</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>-<span style="color:#0000cf;font-weight:bold">110</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><blockquote>
+<p>Nota: el <code>identifier</code> tiene que coincidir con el nombre de una sección</p>
+</blockquote>
+<h2 id="menús-en-el-frontmatter">Menús en el frontmatter</h2>
+<p>También se pueden definir menús en el frontmatter de cada página</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Menu Templates</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">linktitle</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Menu Templates</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">menu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">docs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;how to use menus in templates&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;templates&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">weight</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">130</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="ejemplo-en-las-plantillas">Ejemplo en las plantillas</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>{{ range .Site.Menus.main }}
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;{{ .URL }}&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>{{ .Name }}<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><p>Aquí tiene ejemplos más complejos (con submenús, etc): <a href="https://gohugo.io/templates/menu-templates/#example-templates">https://gohugo.io/templates/menu-templates/#example-templates</a></p>
+<h2 id="tarea">Tarea</h2>
+<p>Adapta un menú de esta página para mostrarlo con Hugo <a href="https://getbootstrap.com/docs/5.2/examples/navbars">https://getbootstrap.com/docs/5.2/examples/navbars</a> Usa solo un nivel en el menú, sin <strong>dropdown</strong></p>
+<blockquote>
+<p>Ejemplo: expand at sm</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">nav</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbar navbar-expand-sm navbar-dark bg-dark&#34;</span> <span style="color:#c4a000">aria-label</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Third navbar example&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;container-fluid&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbar-brand&#34;</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;#&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>Expand at sm<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">button</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbar-toggler&#34;</span> <span style="color:#c4a000">type</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;button&#34;</span> <span style="color:#c4a000">data-bs-toggle</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;collapse&#34;</span> <span style="color:#c4a000">data-bs-target</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;#navbarsExample03&#34;</span> <span style="color:#c4a000">aria-controls</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbarsExample03&#34;</span> <span style="color:#c4a000">aria-expanded</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;false&#34;</span> <span style="color:#c4a000">aria-label</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Toggle navigation&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">span</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbar-toggler-icon&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">span</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">button</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">div</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;collapse navbar-collapse&#34;</span> <span style="color:#c4a000">id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbarsExample03&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">ul</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;navbar-nav me-auto mb-2 mb-sm-0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;nav-item&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;nav-link active&#34;</span> <span style="color:#c4a000">aria-current</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;page&#34;</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;#&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>Acme<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;nav-item&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;nav-link&#34;</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;acercade&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>Acerca de<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">li</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;nav-item&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">a</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;nav-link&#34;</span> <span style="color:#c4a000">href</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;contacto&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>Contacto<span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">a</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">li</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">ul</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">form</span> <span style="color:#c4a000">role</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;search&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">input</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;form-control&#34;</span> <span style="color:#c4a000">type</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;search&#34;</span> <span style="color:#c4a000">placeholder</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Search&#34;</span> <span style="color:#c4a000">aria-label</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Search&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">form</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">div</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">nav</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Última modificación February 15, 2022: <a href="https://github.com/lmorillas/dwes/commit/85f341e926a127dd96626695163feb430d7b9a1c">datatable y pandas (85f341e)</a>
+  Última modificación September 27, 2022: <a href="https://github.com/lmorillas/dwes/commit/b8757c062ff5a8cd6e4e0557403554548d5d5369">menus, imágenes, mapas (b8757c0)</a>
 </div>
 
 </div>

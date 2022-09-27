@@ -28,10 +28,10 @@ $ hugo new viajes/galicia/index.md
 Esto nos permite crear un directorio en esa nueva carpeta (`galicia`) y podemos pegar en un directorio `images` nuestras imágenes.
 
 
-Podemos incluir las imágenes directamente en el markdown o usar el shorcode `{{< figure src="..." >}}`:
+Podemos incluir las imágenes directamente en el markdown o usar el shorcode `{ { < figure src="..." >}}`:
 
-```markdown
-{{< figure src="images/galicia.jpg" title="Galicia" >}}
+```md
+{ { < figure src="images/galicia.jpg" title="Galicia" >}}
 ```
 
 También podemos crear un shortcode más preciso. Por ejemplo, este shortcode **dimensionaFigura.html**
@@ -54,6 +54,6 @@ También podemos crear un shortcode más preciso. Por ejemplo, este shortcode **
 
 Que luego podemos usar así:
 
-```markdown
-{{< dimensionaFigura "galicia.jpg" "Galicia" >}}
+```html
+{ { < dimensionaFigura "galicia.jpg" "Galicia" > }}
 ```
