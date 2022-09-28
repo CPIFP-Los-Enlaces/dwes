@@ -8,23 +8,54 @@ description:
 
 
 {{% pageinfo %}}
-Extensiones a markdown. 
+Inserción de mapas con [Leaflet](https://leafletjs.com/)
 
-**IMPORTANTE:** Se usan dentro del texto **.md** no en las plantillas
-
-Doc: https://gohugo.io/content-management/shortcodes
 {{% /pageinfo %}}
 
-Ejemplo:
+## Requisitos
 
-```go-html-template
+Leaflet necesita un css y un js
 
-{{ < instagram BWNjjyYFxVx >}}
+### css
 
+```html
+ <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin=""></script>
 ```
 
-## Twitter
-{{< tweet 877500564405444608 >}}
+### js
+ 
+```html
+<script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin=""></script>
+```
+### Div en el html
 
-## Vimeo
-{{< vimeo 146022717 >}}
+```html
+ <div id="map"></div>
+ ```
+
+ ### Altura del div en el css
+
+ ```css
+ #map { height: 240px; }
+ ```
+
+### Cargar el mapa en el js
+
+Si tenemos las variables **lat** y **lon** en en el **frontmatter** de la página con las coordenadas del mapa, podemos cargar el mapa con el siguiente código:
+
+```js
+var map = L.map('map').setView([{{ .Params.lat }}, {{ .Params.lon }}], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([{{ .Params.lat }}, {{ .Params.lon }}
+]).addTo(map)
+    .bindPopup('{{ .Title }}');
+
+```

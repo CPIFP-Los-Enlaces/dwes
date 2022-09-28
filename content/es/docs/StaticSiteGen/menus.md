@@ -15,7 +15,9 @@ Creación de menús a partir de parámetros en `config.yaml`
 
 {{% /pageinfo %}}
 
-## Creación de un nuevo tema
+## Menús en `config.yaml`
+
+
 
 https://gohugo.io/templates/menu-templates/#site-config-menus
 

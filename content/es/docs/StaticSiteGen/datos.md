@@ -33,6 +33,12 @@ Ejemplo en templates:
     </div>
 </div>
 
+
+---
+urldatos: https://docs.google.com/spreadsheets/d/e/2PACX-1vQbi7wkOO7rqoAdtfGK-uzL03LUCR8VIh8MCxGIgSpdjD8RMjirVsJanKEiwoPXusfCLFjeji1Dt0zS/pub?gid=0&single=true&output=csv
+
+---
+
 {{ $dataC := getCSV "," .Params.urldatos }}
 
  <table class="table table-striped" >
